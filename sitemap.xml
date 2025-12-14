@@ -2,16 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.klucen.cn/shuoshuo/index.html</loc>
-    
-    <lastmod>2025-12-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.klucen.cn/categories/index.html</loc>
+    <loc>https://www.klucen.cn/about/index.html</loc>
     
     <lastmod>2025-12-14</lastmod>
     
@@ -29,7 +20,16 @@
   </url>
   
   <url>
-    <loc>https://www.klucen.cn/about/index.html</loc>
+    <loc>https://www.klucen.cn/shuoshuo/index.html</loc>
+    
+    <lastmod>2025-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.klucen.cn/categories/index.html</loc>
     
     <lastmod>2025-12-14</lastmod>
     
@@ -100,6 +100,20 @@
   </url>
 
   
+  <url>
+    <loc>https://www.klucen.cn/tags/%E6%A0%87%E7%AD%BE1/</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>https://www.klucen.cn/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
