@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>KLucen&#39;Blog</title>
   
-  <subtitle>Der Wind geht mich weit fern.</subtitle>
+  
   <link href="https://www.klucen.cn/atom.xml" rel="self"/>
   
   <link href="https://www.klucen.cn/"/>
-  <updated>2025-12-14T07:47:48.380Z</updated>
+  <updated>2025-12-14T13:50:19.240Z</updated>
   <id>https://www.klucen.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.klucen.cn/undefined/5c2fafc7.html"/>
     <id>https://www.klucen.cn/undefined/5c2fafc7.html</id>
     <published>2025-12-14T07:45:24.743Z</published>
-    <updated>2025-12-14T07:47:48.380Z</updated>
+    <updated>2025-12-14T13:50:19.240Z</updated>
     
     <content type="html"><![CDATA[<h2 id="这是我的第一篇测试文章"><a href="#这是我的第一篇测试文章" class="headerlink" title="这是我的第一篇测试文章"></a>这是我的第一篇测试文章</h2>]]></content>
     
@@ -33,6 +33,10 @@
     
     
     
+    <category term="生活" scheme="https://www.klucen.cn/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="标签1" scheme="https://www.klucen.cn/tags/%E6%A0%87%E7%AD%BE1/"/>
     
   </entry>
   

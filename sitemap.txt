@@ -1,7 +1,7 @@
+https://www.klucen.cn/about/index.html
+https://www.klucen.cn/undefined/5c2fafc7.html
 https://www.klucen.cn/shuoshuo/index.html
 https://www.klucen.cn/categories/index.html
-https://www.klucen.cn/undefined/5c2fafc7.html
-https://www.klucen.cn/about/index.html
 https://www.klucen.cn/bangumis/index.html
 https://www.klucen.cn/music/index.html
 https://www.klucen.cn/tags/index.html
@@ -9,3 +9,5 @@ https://www.klucen.cn/link/index.html
 https://www.klucen.cn/gallery/index.html
 https://www.klucen.cn/undefined/4a17b156.html
 https://www.klucen.cn/
+https://www.klucen.cn/tags/%E6%A0%87%E7%AD%BE1/
+https://www.klucen.cn/categories/%E7%94%9F%E6%B4%BB/
