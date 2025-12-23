@@ -239,20 +239,6 @@
   </url>
   
   <url>
-    <loc>https://www.klucen.cn/categories/%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2025-12-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.klucen.cn/categories/%E9%9A%8F%E6%83%B3/</loc>
-    <lastmod>2025-12-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.klucen.cn/categories/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -260,7 +246,21 @@
   </url>
   
   <url>
+    <loc>https://www.klucen.cn/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.klucen.cn/categories/%E7%BE%8E%E9%A3%9F/</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.klucen.cn/categories/%E9%9A%8F%E6%83%B3/</loc>
     <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
