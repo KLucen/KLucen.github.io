@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>修复了播放器切换页面后会重新播放的问题</title>
+      <link href="/undefined/c84b68c2.html"/>
+      <url>/undefined/c84b68c2.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="修了一个小-Bug"><a href="#修了一个小-Bug" class="headerlink" title="修了一个小 Bug"></a>修了一个小 Bug</h2><p>博客底部的音乐播放器之前有个问题：切换页面后音乐会中断，重新从歌单第一首开始播放。</p><p>排查后发现是 PJAX 没有启用，每次页面跳转都是全页刷新，播放器实例随 DOM 一起销毁了。启用 PJAX 之后 fixed 吸底播放器在页面切换时会保留，不会被打断。同时修了一下主题 <code>aplayer.pug</code> 里的回调逻辑，防止 <code>loadMeting()</code> 在 PJAX 完成后重复初始化已有的播放器。</p><p>现在切页面听歌不会断了 🎵</p><hr><p>我又来看看我的网页了，证明博主还活着。不过我确实好像不擅长经营自己喵。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 记录 </tag>
+            
+            <tag> 冒泡 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>My birthday</title>
       <link href="/undefined/dcdda2ae.html"/>
       <url>/undefined/dcdda2ae.html</url>
@@ -127,17 +154,6 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/css/custom.css"/>
       <url>/css/custom.css</url>
@@ -154,17 +170,6 @@
       <url>/bangumis/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/runtime.css"/>
-      <url>/css/runtime.css</url>
-      
-        <content type="html"><![CDATA[/*电子钟字体*/@font-face {    font-family: 'UnidreamLED';    src: url("https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/UnidreamLED.ttf");    font-display: swap;}div#runtime {    width: 180px;    margin: auto;    color: #fff;    padding-inline: 5px;    border-radius: 10px;    background-color: rgba(0, 0, 0, 0.7);    font-family: 'UnidreamLED';}[data-theme="dark"] div#runtime {    color: #28b4c8;    box-shadow: 0 0 5px rgba(28, 69, 218, 0.71);    animation: flashlight 1s linear infinite alternate;}/*悬停显示徽标提示语*/a.github-badge:hover:before {    position: fixed;    width: fit-content;    margin: auto;    left: 0;    right: 0;    top: 10%;    border-radius: 10px;    text-align: center;    z-index: 100;    content: attr(data-title);    font-size: 20px;    color: #fff;    padding: 10px;    background-color: var(--text-bg-hover);}[data-theme=dark] a.github-badge:hover:before {    background-color: rgba(18, 18, 18, 0.8);}@-moz-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@-webkit-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@-o-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}]]></content>
       
     </entry>
     
@@ -194,10 +199,32 @@
     
     <entry>
       <title></title>
+      <link href="/css/runtime.css"/>
+      <url>/css/runtime.css</url>
+      
+        <content type="html"><![CDATA[/*电子钟字体*/@font-face {    font-family: 'UnidreamLED';    src: url("https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/UnidreamLED.ttf");    font-display: swap;}div#runtime {    width: 180px;    margin: auto;    color: #fff;    padding-inline: 5px;    border-radius: 10px;    background-color: rgba(0, 0, 0, 0.7);    font-family: 'UnidreamLED';}[data-theme="dark"] div#runtime {    color: #28b4c8;    box-shadow: 0 0 5px rgba(28, 69, 218, 0.71);    animation: flashlight 1s linear infinite alternate;}/*悬停显示徽标提示语*/a.github-badge:hover:before {    position: fixed;    width: fit-content;    margin: auto;    left: 0;    right: 0;    top: 10%;    border-radius: 10px;    text-align: center;    z-index: 100;    content: attr(data-title);    font-size: 20px;    color: #fff;    padding: 10px;    background-color: var(--text-bg-hover);}[data-theme=dark] a.github-badge:hover:before {    background-color: rgba(18, 18, 18, 0.8);}@-moz-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@-webkit-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@-o-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
       <link href="/js/cursor.js"/>
       <url>/js/cursor.js</url>
       
         <content type="html"><![CDATA[var CURSOR;Math.lerp = (a, b, n) => (1 - n) * a + n * b;const getStyle = (el, attr) => {    try {        return window.getComputedStyle            ? window.getComputedStyle(el)[attr]            : el.currentStyle[attr];    } catch (e) {}    return "";};class Cursor {    constructor() {        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    move(left, top) {        this.cursor.style["left"] = `${left}px`;        this.cursor.style["top"] = `${top}px`;    }    create() {        if (!this.cursor) {            this.cursor = document.createElement("div");            this.cursor.id = "cursor";            this.cursor.classList.add("hidden");            document.body.append(this.cursor);        }        var el = document.getElementsByTagName('*');        for (let i = 0; i < el.length; i++)            if (getStyle(el[i], "cursor") == "pointer")                this.pt.push(el[i].outerHTML);        document.body.appendChild((this.scr = document.createElement("style")));        // 这里改变鼠标指针的颜色 由svg生成        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='.5'/></svg>") 4 4, auto}`;    }    refresh() {        this.scr.remove();        this.cursor.classList.remove("hover");        this.cursor.classList.remove("active");        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    init() {        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};        document.onmouseenter = e => this.cursor.classList.remove("hidden");        document.onmouseleave = e => this.cursor.classList.add("hidden");        document.onmousedown  = e => this.cursor.classList.add("active");        document.onmouseup    = e => this.cursor.classList.remove("active");    }    render() {        if (this.pos.prev) {            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);            this.move(this.pos.prev.x, this.pos.prev.y);        } else {            this.pos.prev = this.pos.curr;        }        requestAnimationFrame(() => this.render());    }}(() => {    CURSOR = new Cursor();    // 需要重新获取列表时，使用 CURSOR.refresh()})();]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -209,17 +236,6 @@
       <url>/js/universe.js</url>
       
         <content type="html"><![CDATA[function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
-      
-        <content type="html"><![CDATA[setInterval(() => {  let create_time = Math.round(new Date('2019-04-17 00:00:00').getTime() / 1000); //在此行修改建站时间  let timestamp = Math.round((new Date().getTime()) / 1000);  let second = timestamp - create_time;  let time = new Array(0, 0, 0, 0, 0);  var nol = function(h){    return h>9?h:'0'+h;  }  if (second >= 365 * 24 * 3600) {    time[0] = parseInt(second / (365 * 24 * 3600));    second %= 365 * 24 * 3600;  }  if (second >= 24 * 3600) {    time[1] = parseInt(second / (24 * 3600));    second %= 24 * 3600;  }  if (second >= 3600) {    time[2] = nol(parseInt(second / 3600));    second %= 3600;  }  if (second >= 60) {    time[3] = nol(parseInt(second / 60));    second %= 60;  }  if (second > 0) {    time[4] = nol(second);  }  if ((Number(time[2])<22) && (Number(time[2])>7)){    currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/糖果屋-营业中-6adea8?style=social&logo=cakephp' title='距离百年老店也就差不到一百年~'><div id='runtime'>" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';  }  else{    currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/糖果屋-打烊了-6adea8?style=social&logo=coffeescript' title='这个点了应该去睡觉啦，熬夜对身体不好哦'><div id='runtime'>" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';  }  document.getElementById("workboard").innerHTML = currentTimeHtml;}, 1000);]]></content>
       
     </entry>
     
@@ -248,11 +264,11 @@
     
     
     <entry>
-      <title>二次元</title>
-      <link href="/gallery/bangumi/index.html"/>
-      <url>/gallery/bangumi/index.html</url>
+      <title>美食</title>
+      <link href="/gallery/food/index.html"/>
+      <url>/gallery/food/index.html</url>
       
-        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//bangumi/bangumi.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/preview.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/d074f0b5fa76eb161f850250eaf45bd.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/Asuka.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/0d8e26c3d921b559fe.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/18dcbc357522fc6e7166a0d78824a3e1be1b9e14.png%401192w.webp","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/18f2dad6abad62c72291f9e6d7955aa.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/73dac64f1996c68706.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/67626fd226ea4137b80c149a0b4d67e.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/63945518.jpg","alt":"","title":""}]</div>  </div>]]></content>
+        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//food/food.jpg","alt":"冷串串","title":""},{"url":"https://pics.klucen.cn//food/IMG_4342.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4351.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4353.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4354.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4355.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4356.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4357.jpg","alt":"四季民福真的好吃😋","title":""},{"url":"https://pics.klucen.cn//food/IMG_4358.jpg","alt":"","title":""}]</div>  </div>]]></content>
       
     </entry>
     
@@ -270,11 +286,33 @@
     
     
     <entry>
-      <title>旅行照</title>
-      <link href="/gallery/travel/index.html"/>
-      <url>/gallery/travel/index.html</url>
+      <title>你怎么知道我在2025.12.6去参加了邓紫棋的演唱会</title>
+      <link href="/gallery/GEM/index.html"/>
+      <url>/gallery/GEM/index.html</url>
       
-        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//travel/IMG_4391.jpg","alt":"皇家哈基米","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4286.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4293.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4320.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4324.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4326.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4327.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4329.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4338.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4340.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4365.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4373.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4377.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4381.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4382.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4385.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4387.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4390.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4265.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4266.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4268.jpg","alt":"学校的庭院","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4271.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4284.jpg","alt":"","title":""}]</div>  </div>]]></content>
+        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//GEM/GEM.JPG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91mv-%E9%82%93%E7%B4%AB%E6%A3%8B.png","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8050.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8074.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8052.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8064.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8079.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8080.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8082.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8088.PNG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8090.JPG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8091.JPG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8092.JPG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8093.JPG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8094.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/Q2Sw1QlWF84jqea.jpeg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM0.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM1.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM2.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM3.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM4.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM5.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM6.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM7.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM8.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM9.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM10.jpg","alt":"","title":""}]</div>  </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[setInterval(() => {  let create_time = Math.round(new Date('2019-04-17 00:00:00').getTime() / 1000); //在此行修改建站时间  let timestamp = Math.round((new Date().getTime()) / 1000);  let second = timestamp - create_time;  let time = new Array(0, 0, 0, 0, 0);  var nol = function(h){    return h>9?h:'0'+h;  }  if (second >= 365 * 24 * 3600) {    time[0] = parseInt(second / (365 * 24 * 3600));    second %= 365 * 24 * 3600;  }  if (second >= 24 * 3600) {    time[1] = parseInt(second / (24 * 3600));    second %= 24 * 3600;  }  if (second >= 3600) {    time[2] = nol(parseInt(second / 3600));    second %= 3600;  }  if (second >= 60) {    time[3] = nol(parseInt(second / 60));    second %= 60;  }  if (second > 0) {    time[4] = nol(second);  }  if ((Number(time[2])<22) && (Number(time[2])>7)){    currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/糖果屋-营业中-6adea8?style=social&logo=cakephp' title='距离百年老店也就差不到一百年~'><div id='runtime'>" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';  }  else{    currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/糖果屋-打烊了-6adea8?style=social&logo=coffeescript' title='这个点了应该去睡觉啦，熬夜对身体不好哦'><div id='runtime'>" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';  }  document.getElementById("workboard").innerHTML = currentTimeHtml;}, 1000);]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>二次元</title>
+      <link href="/gallery/bangumi/index.html"/>
+      <url>/gallery/bangumi/index.html</url>
+      
+        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//bangumi/bangumi.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/preview.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/d074f0b5fa76eb161f850250eaf45bd.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/Asuka.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/0d8e26c3d921b559fe.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/18dcbc357522fc6e7166a0d78824a3e1be1b9e14.png%401192w.webp","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/18f2dad6abad62c72291f9e6d7955aa.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/73dac64f1996c68706.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/67626fd226ea4137b80c149a0b4d67e.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/63945518.jpg","alt":"","title":""}]</div>  </div>]]></content>
       
     </entry>
     
@@ -292,22 +330,11 @@
     
     
     <entry>
-      <title>美食</title>
-      <link href="/gallery/food/index.html"/>
-      <url>/gallery/food/index.html</url>
+      <title>旅行照</title>
+      <link href="/gallery/travel/index.html"/>
+      <url>/gallery/travel/index.html</url>
       
-        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//food/food.jpg","alt":"冷串串","title":""},{"url":"https://pics.klucen.cn//food/IMG_4342.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4351.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4353.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4354.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4355.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4356.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//food/IMG_4357.jpg","alt":"四季民福真的好吃😋","title":""},{"url":"https://pics.klucen.cn//food/IMG_4358.jpg","alt":"","title":""}]</div>  </div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>你怎么知道我在2025.12.6去参加了邓紫棋的演唱会</title>
-      <link href="/gallery/GEM/index.html"/>
-      <url>/gallery/GEM/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//GEM/GEM.JPG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91mv-%E9%82%93%E7%B4%AB%E6%A3%8B.png","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8050.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8074.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8052.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8064.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8079.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8080.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8082.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8088.PNG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8090.JPG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8091.JPG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8092.JPG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8093.JPG","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/IMG_8094.jpg","alt":"你怎么知道我在2025.12.6去参加了邓紫棋的演唱会","title":""},{"url":"https://pics.klucen.cn//GEM/Q2Sw1QlWF84jqea.jpeg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM0.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM1.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM2.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM3.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM4.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM5.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM6.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM7.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM8.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM9.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//GEM/GEM10.jpg","alt":"","title":""}]</div>  </div>]]></content>
+        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//travel/IMG_4391.jpg","alt":"皇家哈基米","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4286.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4293.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4320.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4324.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4326.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4327.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4329.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4338.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4340.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4365.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4373.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4377.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4381.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4382.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4385.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4387.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4390.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4265.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4266.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4268.jpg","alt":"学校的庭院","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4271.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4284.jpg","alt":"","title":""}]</div>  </div>]]></content>
       
     </entry>
     
