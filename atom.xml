@@ -6,7 +6,7 @@
   <link href="https://www.klucen.cn/atom.xml" rel="self"/>
   
   <link href="https://www.klucen.cn/"/>
-  <updated>2026-03-18T01:30:10.225Z</updated>
+  <updated>2026-07-24T04:54:59.589Z</updated>
   <id>https://www.klucen.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>修复了播放器切换页面后会重新播放的问题</title>
+    <link href="https://www.klucen.cn/undefined/c84b68c2.html"/>
+    <id>https://www.klucen.cn/undefined/c84b68c2.html</id>
+    <published>2026-07-24T05:00:00.000Z</published>
+    <updated>2026-07-24T04:54:59.589Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="修了一个小-Bug"><a href="#修了一个小-Bug" class="headerlink" title="修了一个小 Bug"></a>修了一个小 Bug</h2><p>博客底部的音乐播放器之前有个问题：切换页面后音乐会中断，重新从歌单第一首开始播放。</p><p>排查后发现是 PJAX 没有启用，每次页面跳转都是全页刷新，播放器实例随 DOM 一起销毁了。启用 PJAX 之后 fixed 吸底播放器在页面切换时会保留，不会被打断。同时修了一下主题 <code>aplayer.pug</code> 里的回调逻辑，防止 <code>loadMeting()</code> 在 PJAX 完成后重复初始化已有的播放器。</p><p>现在切页面听歌不会断了 🎵</p><hr><p>我又来看看我的网页了，证明博主还活着。不过我确实好像不擅长经营自己喵。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;修了一个小-Bug&quot;&gt;&lt;a href=&quot;#修了一个小-Bug&quot; class=&quot;headerlink&quot; title=&quot;修了一个小 Bug&quot;&gt;&lt;/a&gt;修了一个小 Bug&lt;/h2&gt;&lt;p&gt;博客底部的音乐播放器之前有个问题：切换页面后音乐会中断，重新从歌单第一首开始播放。&lt;</summary>
+      
+    
+    
+    
+    <category term="生活" scheme="https://www.klucen.cn/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="记录" scheme="https://www.klucen.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="冒泡" scheme="https://www.klucen.cn/tags/%E5%86%92%E6%B3%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>My birthday</title>
