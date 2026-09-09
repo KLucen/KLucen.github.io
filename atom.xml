@@ -6,7 +6,7 @@
   <link href="https://www.klucen.cn/atom.xml" rel="self"/>
   
   <link href="https://www.klucen.cn/"/>
-  <updated>2026-08-03T09:07:28.203Z</updated>
+  <updated>2026-09-09T11:27:35.064Z</updated>
   <id>https://www.klucen.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>给 dsh web 做了个桌面快捷启动插件</title>
+    <link href="https://www.klucen.cn/posts/73edb7ce.html"/>
+    <id>https://www.klucen.cn/posts/73edb7ce.html</id>
+    <published>2026-09-09T11:30:00.000Z</published>
+    <updated>2026-09-09T11:27:35.064Z</updated>
+    
+    <content type="html"><![CDATA[<p>给 <code>dsh web</code> 写了个小插件 —— <strong>dsh-desktop_quick_launcher</strong>,补上我一直觉得最缺的两块体验:<strong>双击桌面图标启动</strong>,和<strong>在界面里一键退出</strong>。</p><p>仓库在 <a href="https://github.com/KLucen/dsh-desktop_quick_launcher">GitHub: KLucen/dsh-desktop_quick_launcher</a>(Apache-2.0)。</p><h2 id="为什么会有这个插件"><a href="#为什么会有这个插件" class="headerlink" title="为什么会有这个插件"></a>为什么会有这个插件</h2><p><code>dsh web</code> 是本地优先的服务,日常用其实挺舒服:浏览器打开就是完整 GUI,不占资源、不上云。但「本地服务」嘛,总有点桌面应用才有的别扭感:</p><ul><li><strong>启动要开终端</strong>:先找到终端,敲 <code>dsh web</code>,等它起来,再手动开浏览器;</li><li><strong>退出没入口</strong>:界面里没有「关掉服务」的按钮,关掉浏览器只是断开连接,服务还在后台占着 3080 端口,要么留着吃内存,要么回终端 Ctrl+C。</li></ul><p>其实之前有 <a href="https://www.npmjs.com/package/@linxin666/dsh-desktop-launcher">@linxin666/dsh-desktop-launcher</a> 这个插件解决过类似问题,但它已经退役了。与其依赖别人维护,不如自己动手独立重建一个:能按自己的习惯调整,许可证干净(Apache-2.0,派生关系见仓库 NOTICE),于是就有了这个插件。</p><h2 id="它能做什么"><a href="#它能做什么" class="headerlink" title="它能做什么"></a>它能做什么</h2><p>插件是<strong>双面结构</strong>:</p><ul><li><strong>Host 端</strong>:cordis 插件(注入 <code>webServer</code>),提供两个 API,负责「生成桌面图标」和「优雅退出」;</li><li><strong>Client 端</strong>:加载进 <code>dsh web</code> 页面,右下角多出两个小按钮。</li></ul><p>整体就是下图这么个关系:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────── dsh web 进程(Host) ───────────────────┐</span><br><span class="line">│  /api/dsh-desktop_quick_launcher/create   → 生成桌面图标   │</span><br><span class="line">│  /api/dsh-desktop_quick_launcher/shutdown → 优雅退出进程   │</span><br><span class="line">│              ▲                               ▲           │</span><br><span class="line">│              └────────── fetch ──────────────┘           │</span><br><span class="line">│   Client(浏览器右下角悬浮按钮):                           │</span><br><span class="line">│     ⏻ 一键退出 · ＋ 一键生成/刷新桌面图标                  │</span><br><span class="line">└──────────────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure><h3 id="①-双击桌面图标启动"><a href="#①-双击桌面图标启动" class="headerlink" title="① 双击桌面图标启动"></a>① 双击桌面图标启动</h3><p>第一次用,在界面里点右下角那个「生成图标」小按钮,桌面就会出现一个 <code>DSH-Web</code> 图标(Windows 是 <code>.lnk</code>,macOS 是 <code>.command</code>,Linux 是 <code>.desktop</code>;dsh 图标会复制到脚本旁边,以后就算包被移动,快捷方式也不会失效)。</p><p>双击之后脚本会做三件事:</p><ol><li><strong>先探测</strong> GUI 地址——如果 <code>dsh web</code> 已经在运行,直接打开浏览器、退出脚本;</li><li>没在运行的话,<strong>隐藏启动</strong> <code>dsh web --no-open</code>,然后轮询等待服务就绪(给了 150 秒预算,冷启动慢的机器也够);</li><li>就绪后自动打开浏览器。打开这一步还带了<strong>三连兜底</strong>:<code>Start-Process</code> → <code>explorer.exe</code> → <code>cmd /c start</code>,”启动成功了但没弹浏览器”这种情况基本被消灭了。</li></ol><p>排查也简单:每一步(调用了什么命令、找到了哪个 dsh、spawn 的 pid、子进程早退、就绪、每次打开尝试、超时)都写进脚本旁边的 <code>launcher.log</code>,出问题看一个文件就够,不用猜。</p><h3 id="②-界面内一键退出"><a href="#②-界面内一键退出" class="headerlink" title="② 界面内一键退出"></a>② 界面内一键退出</h3><p>右下角有一个固定的<strong>圆形电源按钮</strong>(悬浮在页面角落)。点击后弹出的是<strong>自定义确认弹窗</strong>,不是浏览器那个又丑又不可控的原生 <code>confirm</code>;确认后请求 <code>POST /shutdown</code>:</p><ul><li>宿主进程收到后走<strong>优雅退出</strong>(优先用 dsh launcher 提供的 <code>ctx.appExit</code>,没有就回退 <code>process.exit(0)</code>);</li><li>关键细节:先让响应送达浏览器,<strong>再退出进程</strong>,然后页面自己关闭——不会出现”点了没反应”的错觉。</li></ul><p>按钮旁边还有个小按钮,用来<strong>一键生成/刷新桌面图标</strong>,结果用 toast 提示。比如图标被误删了、或者想换一套启动配置,不用再摸终端。</p><h3 id="③-安全边界-只允许本机操作"><a href="#③-安全边界-只允许本机操作" class="headerlink" title="③ 安全边界:只允许本机操作"></a>③ 安全边界:只允许本机操作</h3><p><code>create</code> 和 <code>shutdown</code> 这两个接口<strong>仅限 loopback</strong>:会同时校验 socket 地址、Host 头和同源标记。也就是说,即使哪天把 <code>dsh web</code> 暴露到了局域网,别人也没法远程给你创建图标或者远程关机。默认还带 <code>enabled</code> 总开关,不想要可以整体关掉。</p><p>配置走 schemastery,暴露在 <code>desktop-quick-launcher</code> 命名空间下:<code>enabled</code> / <code>announceToAgent</code> / <code>dshCommand</code> / <code>url</code> / <code>profile</code> / <code>iconPath</code> / <code>confirmShutdown</code>,可以在 dsh web 的设置里按需调整(比如换端口、换自定义图标)。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>还没发布到 npm,先走 GitHub:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dsh plugin --profile web add github:KLucen/dsh-desktop_quick_launcher</span><br><span class="line"><span class="comment"># 重启 dsh web 后生效(客户端产物是启动时装载的)</span></span><br><span class="line">dsh web</span><br></pre></td></tr></table></figure><p>直连不了 github.com 的话(比如在墙内),用镜像地址:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsh plugin --profile web add <span class="string">&quot;https://gh-proxy.com/https://codeload.github.com/KLucen/dsh-desktop_quick_launcher/tar.gz/refs/heads/main&quot;</span></span><br></pre></td></tr></table></figure><p>重启后进页面,右下角应该能看到按钮了;点「生成图标」→ 桌面出现 <code>DSH-Web</code> → 以后双击就能开,用完点电源按钮就能关,再也不用为它专门开终端了。</p><blockquote><p>小提醒:第一次双击启动时服务要冷启动(最长 150 秒),<strong>别在就绪前反复双击</strong>——多个脚本实例会各自拉起一个 <code>dsh web</code>,后来的会因 3080 端口被占用而退出(日志里会提示),等第一次启动完成就好。</p></blockquote><h2 id="踩坑记录-写给想写-dsh-web-插件的人"><a href="#踩坑记录-写给想写-dsh-web-插件的人" class="headerlink" title="踩坑记录(写给想写 dsh web 插件的人)"></a>踩坑记录(写给想写 dsh web 插件的人)</h2><p>开发过程中最折腾的不是功能本身,而是 <strong>Client 端产物怎么让 dsh web 正常加载</strong>:</p><ul><li>DSH 的浏览器端 loader 要求每个插件的 <code>./client</code> 入口是 <strong>classic script</strong>,并且必须通过 <code>window.__ModuleLoader__.load(&#123; id, factory &#125;)</code> 自注册(<code>react</code>/<code>react-dom</code> 是由 loader 的 <code>require</code> 注入的);</li><li>如果直接发一个纯 ESM 的 <code>client.mjs</code>,<code>dsh web</code> 会<strong>启动中止</strong>,报 <code>loaded without registering ... via ModuleLoader.load</code>;</li><li>解决方案:<code>pnpm build</code> 里用 esbuild 做一个包装步骤(<code>scripts/wrap-client.mjs</code>)产出 <code>lib/client.js</code>,再在 VM 里校验产物(<code>scripts/verify-client.mjs</code>)。</li><li>血泪教训:别图省事用 PowerShell 手写包装文件——会破坏 UTF-8,界面中文直接变乱码,老老实实从源码 rebuild。</li></ul><p>手动升级也有个坑:直接 bump 版本后 <code>pnpm install</code>,顶层 <code>node_modules</code> 里的条目可能还链着旧版本的 store 目录。正确姿势是先 <code>dsh plugin --profile web remove dsh-desktop_quick_launcher</code>,再重新 add。</p><h2 id="已知限制-如实说"><a href="#已知限制-如实说" class="headerlink" title="已知限制(如实说)"></a>已知限制(如实说)</h2><ul><li>退出按钮会终止<strong>整个</strong> <code>dsh web</code> 进程:正在跑的会话/任务会被中断(会话有持久化,重启后可恢复);</li><li><code>/create</code> 和 <code>/shutdown</code> 刻意只限 loopback:通过远程浏览器连接局域网暴露的服务时,这两个按钮不可用;</li><li>Windows 下生成的图标固定叫 <code>DSH-Web.lnk</code>,同名快捷方式会被覆盖;</li><li>macOS / Linux 的启动脚本由同一套模板生成,但主要在 Windows 上开发验证,那边有问题欢迎带 <code>launcher.log</code> 反馈;</li><li>SDK 依赖锁定在 <code>@deepseek-ai/* 0.1.2-rc.1</code> 一线,会随 DSH 发布节奏更新。</li></ul><h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>至此,<code>dsh web</code> 终于有点「正经本地应用」的样子了:桌面上双击图标就能开,用完点一下电源按钮就走,不用再记命令、不用再找终端。</p><p>如果这个插件对你有用,欢迎去 <a href="https://github.com/KLucen/dsh-desktop_quick_launcher">GitHub 仓库</a> 点个 Star,有问题或建议直接开 issue;<a href="https://github.com/KLucen/dsh-desktop_quick_launcher/blob/main/README.zh.md">中文 README</a> 里有更完整的安装和故障排查说明。</p><p>水完这篇,证明博主还活着(确信)。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;给 &lt;code&gt;dsh web&lt;/code&gt; 写了个小插件 —— &lt;strong&gt;dsh-desktop_quick_launcher&lt;/strong&gt;,补上我一直觉得最缺的两块体验:&lt;strong&gt;双击桌面图标启动&lt;/strong&gt;,和&lt;strong&gt;在界面里一键退出&lt;/</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://www.klucen.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="记录" scheme="https://www.klucen.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="DSH" scheme="https://www.klucen.cn/tags/DSH/"/>
+    
+    <category term="插件" scheme="https://www.klucen.cn/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>《深入理解 AI Agent：设计原理与工程实践》章节精读笔记</title>
