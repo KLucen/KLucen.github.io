@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.klucen.cn/posts/73edb7ce.html</loc>
+    
+    <lastmod>2026-09-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.klucen.cn/posts/66321874.html</loc>
     
     <lastmod>2026-08-03</lastmod>
@@ -184,85 +193,99 @@
 
   <url>
     <loc>https://www.klucen.cn/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://www.klucen.cn/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.klucen.cn/tags/Markdown/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.klucen.cn/tags/%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.klucen.cn/tags/%E5%86%92%E6%B3%A1/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <loc>https://www.klucen.cn/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.klucen.cn/tags/%E5%90%AC%E6%AD%8C%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.klucen.cn/tags/DeepSeek%E7%94%9F%E6%88%90/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.klucen.cn/tags/%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.klucen.cn/tags/%E5%86%92%E6%B3%A1/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.klucen.cn/tags/DSH/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.klucen.cn/tags/%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.klucen.cn/tags/%E6%A0%87%E7%AD%BE1/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.klucen.cn/tags/%E5%86%85%E5%AE%B9%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.klucen.cn/tags/AI-Agent/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.klucen.cn/tags/harness/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.klucen.cn/tags/loop-engineering/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -271,14 +294,21 @@
   
   <url>
     <loc>https://www.klucen.cn/categories/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.klucen.cn/categories/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.klucen.cn/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
