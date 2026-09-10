@@ -1,0 +1,575 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>dsh web 快捷启动插件 v0.2：一键重启、失败诊断，和「绝不打断回答」 | KLucenの启示录</title><meta name="author" content="KLucen"><meta name="copyright" content="KLucen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="上一篇给 dsh web 写了桌面快捷启动插件 dsh-desktop_quick_launcher。发出来之后自己天天在用，用着用着就发现：「能用」和「敢用」之间还差着一大截。于是从 v0.1.1 一路迭代到了 v0.2.7，这篇记录一下中间加了什么。 一句话版本：桌面图标还在，但插件现在管的是启动 &#x2F; 重启 &#x2F; 退出三件事，而且在任何情况下都不会切断正在生成的回答。 最想先说的：绝不打断正在生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dsh web 快捷启动插件 v0.2：一键重启、失败诊断，和「绝不打断回答」">
+<meta property="og:url" content="https://www.klucen.cn/posts/7e01b64d.html">
+<meta property="og:site_name" content="KLucenの启示录">
+<meta property="og:description" content="上一篇给 dsh web 写了桌面快捷启动插件 dsh-desktop_quick_launcher。发出来之后自己天天在用，用着用着就发现：「能用」和「敢用」之间还差着一大截。于是从 v0.1.1 一路迭代到了 v0.2.7，这篇记录一下中间加了什么。 一句话版本：桌面图标还在，但插件现在管的是启动 &#x2F; 重启 &#x2F; 退出三件事，而且在任何情况下都不会切断正在生成的回答。 最想先说的：绝不打断正在生">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.klucen.cn//img/Asuka.jpg">
+<meta property="article:published_time" content="2026-09-10T11:45:00.000Z">
+<meta property="article:modified_time" content="2026-09-10T11:43:00.507Z">
+<meta property="article:author" content="KLucen">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.klucen.cn//img/Asuka.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "dsh web 快捷启动插件 v0.2：一键重启、失败诊断，和「绝不打断回答」",
+  "url": "https://www.klucen.cn/posts/7e01b64d.html",
+  "image": "https://www.klucen.cn//img/Asuka.jpg",
+  "datePublished": "2026-09-10T11:45:00.000Z",
+  "dateModified": "2026-09-10T11:43:00.507Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "KLucen",
+      "url": "https://www.klucen.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://www.klucen.cn/posts/7e01b64d.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.4/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":5,"unescape":true,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'dsh web 快捷启动插件 v0.2：一键重启、失败诊断，和「绝不打断回答」',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="KLucenの启示录" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-image: url(/img/theme_bizhi.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/%5Cimg%5CAsuka.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-video"></i><span> 追番</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fas fa-video"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">KLucenの启示录</span></a><a class="nav-page-title" href="/"><span class="site-name">dsh web 快捷启动插件 v0.2：一键重启、失败诊断，和「绝不打断回答」</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-video"></i><span> 追番</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fas fa-video"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">dsh web 快捷启动插件 v0.2：一键重启、失败诊断，和「绝不打断回答」</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-10T11:45:00.000Z" title="发表于 2026-09-10 19:45:00">2026-09-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-10T11:43:00.507Z" title="更新于 2026-09-10 19:43:00">2026-09-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2026-09-10 19:43:00&quot;}" hidden></div><p>上一篇给 <code>dsh web</code> 写了桌面快捷启动插件 <a target="_blank" rel="noopener" href="https://github.com/KLucen/dsh-desktop_quick_launcher">dsh-desktop_quick_launcher</a>。发出来之后自己天天在用，用着用着就发现：「能用」和「敢用」之间还差着一大截。于是从 v0.1.1 一路迭代到了 <strong>v0.2.7</strong>，这篇记录一下中间加了什么。</p>
+<p>一句话版本：桌面图标还在，但插件现在管的是<strong>启动 / 重启 / 退出</strong>三件事，而且<strong>在任何情况下都不会切断正在生成的回答</strong>。</p>
+<h2 id="最想先说的：绝不打断正在生成的回答"><a href="#最想先说的：绝不打断正在生成的回答" class="headerlink" title="最想先说的：绝不打断正在生成的回答"></a>最想先说的：绝不打断正在生成的回答</h2><p>装插件、升 DSH 核心、重打补丁，都要重启 <code>dsh web</code>。而一个「朴素」的重启按钮是很危险的：你正在等模型写完一段代码，手一滑点了重启，回答就没了。</p>
+<p>所以 v0.2 里，「重启」和「停止」都先过一道门：</p>
+<ul>
+<li><strong>未结束的回合会阻断操作。</strong> 宿主读取 live session，套用 <code>@deepseek-ai/dsh-session</code> 自己的开放回合判据（由最后一个 <code>turn/start</code> / <code>turn/end</code> 边界决定），返回 <code>409 busy</code> 并列出相关会话。</li>
+<li>界面上的处理比报错友好：<strong>生成期间按钮直接禁用</strong>，并提供一个「<strong>等空闲后自动重启</strong>」（客户端队列，上限 10 分钟，可取消）。</li>
+<li>就算你排了队，<strong>退出前宿主还会再查一次</strong>：如果这时刚好有新回答开始，重启会被记为 <code>aborted-busy</code> 并<strong>取消</strong>，页面提示「已取消：检测到新开始的回答」。</li>
+<li>逃生口是刻意留的：万一某个回合永久卡死，硬阻断会让重启按钮彻底失效。所以保留了 <code>force: true</code>，但只能通过<strong>二次、措辞明确</strong>的确认触达（「强制：会中断正在生成的回答」），并且会在重启报告里记上 <code>forced: true</code>。</li>
+</ul>
+<h2 id="重启这件事，是怎么才走通的"><a href="#重启这件事，是怎么才走通的" class="headerlink" title="重启这件事，是怎么才走通的"></a>重启这件事，是怎么才走通的</h2><p>这部分是 v0.2 里最折腾的：让一个进程「自杀后重生」，在 Windows 上比想象中难。</p>
+<p>第一版的思路很自然：宿主 spawn 一个 detached 子进程，让它等宿主退出后拉起新实例。<strong>实测直接死</strong> —— 在 Windows 上，这个子进程会在<strong>执行任何一条语句之前</strong>就随宿主的进程树被杀掉，一行代码都跑不到。</p>
+<p>现在的方案是<strong>计划任务</strong>：</p>
+<ul>
+<li>宿主把重启助手作为计划任务启动，它的进程属于<strong>任务计划服务</strong>，宿主自己的清理动不到它；</li>
+<li>但宿主不会「启动完就放心去死」：它会<strong>等助手把共享状态文件推进到 <code>handoff</code></strong> 之后，才回响应并退出；</li>
+<li>如果助手始终没报到，重启会被<strong>取消、服务继续运行</strong> —— 重启机制坏掉，不再等于服务变死。这一点很重要。</li>
+</ul>
+<p>助手里还有几个必须显式处理的细节：</p>
+<ul>
+<li>计划任务的启动目录是 <code>%SystemRoot%\System32</code>，而且<strong>没有 <code>DSH_HOME</code></strong>，两个都得显式还原，否则新实例会找不到自己的家；</li>
+<li>助手<strong>绝不使用 <code>taskkill /T</code></strong>：它自己是旧宿主的子孙进程，<code>/T</code> 会把它自己一起杀掉；</li>
+<li>助手从捕获的 stdout 里解析新实例的 <code>dsh web: http://…/?token=…</code> 一行，留作浏览器 cookie 失效时的兜底。</li>
+</ul>
+<p>那<strong>页面为什么能自己回来</strong>？因为浏览器会话 cookie 的签名密钥持久化在 <code>$DSH_HOME/.credentials.yaml</code>（默认 30 天），<strong>能跨重启存活</strong>；客户端等 <code>/ping</code> 返回一个和重启前<strong>不同</strong>的 <code>instanceId</code>，然后重新加载原 URL。另外，同时只允许一次重启 —— inflight 标记让第二次请求拿到 <code>409 restart-inflight</code>，双击出的两个标签页不会起两个助手。</p>
+<h2 id="出问题时，别再让人猜"><a href="#出问题时，别再让人猜" class="headerlink" title="出问题时，别再让人猜"></a>出问题时，别再让人猜</h2><p>v0.1 时代最难受的是：图标双击了、服务没起来，然后<strong>什么信息都没有</strong>。v0.2 在诊断上做了三件事：</p>
+<p><strong>① 分级探针，把「没起来」拆成四种各有结论的状态。</strong> 顺序是：TCP 连接 → 插件 <code>/ping</code>（确认是本插件，拿到 instanceId）→ <code>GET /</code> 指纹（<code>dsh web authentication required</code>）→ 外来服务。于是「DSH 已在运行 / 端口被别的程序占用 / 端口有人监听但从不响应（僵死实例）/ 端口空闲」是可以区分的。只要端口不是<strong>空闲</strong>，就是一条<strong>诊断</strong>而不是一次启动尝试：启动器会报告占用者的 PID 和进程名，然后停下。</p>
+<p><strong>② 捕获子进程输出。</strong> v0.1 用 <code>-WindowStyle Hidden</code> 把 stdout/stderr 全丢了，失败了只看到一个「代码 1」。现在它们写进 <code>dsh-child.out.log</code> / <code>dsh-child.err.log</code>，<strong>末尾 15 行</strong>同时进入桌面消息框和报告 —— 通常这就是全部答案。</p>
+<p><strong>③ 机器可读的状态文件。</strong> 每次运行都会<strong>原子写</strong>（临时文件 + 改名，UTF-8 <strong>无 BOM</strong>）<code>launcher-status.json</code>，重启写 <code>restart-status.json</code>；<strong>九类失败结论</strong>各自带下一步建议；GUI 会在页面加载时把上次启动失败<strong>提示一次</strong>（一次性横幅），你不必先知道「有日志文件这回事」。</p>
+<p>顺带一提，并发也处理了：<strong>命名互斥量</strong>会串行化同时来的调用 —— 连点三次图标，不会再让三个启动器去抢 3080，多出来的调用转为等待。</p>
+<h2 id="面板和设置卡片"><a href="#面板和设置卡片" class="headerlink" title="面板和设置卡片"></a>面板和设置卡片</h2><p>右下角的悬浮件现在是一组：<strong>桌面图标/详情、停止、重启</strong>。</p>
+<ul>
+<li><strong>详情</strong>弹出面板：实例信息（PID、端口、运行时长、版本）、当前生成状态、上次启动报告、上次重启报告、抓到的子进程输出尾部。</li>
+<li>插件还在<strong>设置</strong>里贡献了自己的一页（<code>settings.section</code> 槽位，和其它插件页并列）：<ul>
+<li><strong>悬浮按钮</strong>：三个按钮各有独立开关，可以只留一部分，也可以全部隐藏（全关掉右下角就干干净净）；</li>
+<li><strong>日志与状态文件</strong>：列出各个 log / 状态文件的大小与修改时间，支持<strong>查看</strong>（末尾）、<strong>清空</strong>（单个或全部）、<strong>刷新</strong>、<strong>打开目录</strong>。状态文件是<strong>删除</strong>而不是清空，这样面板显示的是「暂无记录」而不是解析错误；</li>
+<li>这些路由只接受<strong>白名单里的名字</strong>（绝不接受调用方传来的路径），写操作需要 nonce。</li>
+</ul>
+</li>
+</ul>
+<h2 id="几个「事后想起来很关键」的修复"><a href="#几个「事后想起来很关键」的修复" class="headerlink" title="几个「事后想起来很关键」的修复"></a>几个「事后想起来很关键」的修复</h2><ol>
+<li><strong>v0.2.3：快捷方式开的是裸地址，首次打开必然要求认证。</strong> 以前打开 <code>http://127.0.0.1:3080</code>，浏览器没有 cookie 时 DSH 会返回 <code>dsh web authentication required</code>。现在启动器会解析<strong>带 token 的 URL</strong>（优先 <code>/ping</code> 公布的 <code>authUrl</code>，缓存在 <code>auth-url.txt</code>；其次是自己启动子进程时捕获的那一行），首次加载就是已认证状态。</li>
+<li><strong>v0.2.4：把 <code>/ping</code> 的 200 当成了「就绪」。</strong> 可那时 SPA 兜底还没注册好，浏览器打开就是 <code>HTTP ERROR 404</code>。现在的启动器有<strong>就绪门</strong>（<code>Test-GuiReady</code>）和 <code>starting</code> 阶段 —— 只等待、不重复起实例；顺带在 DSH 模态框打开时把悬浮件藏起来。</li>
+<li><strong>v0.2.5：启动器脚本「永远不更新」。</strong> 快捷方式跑的一直是「创建图标那一刻」写下的脚本 —— 也就是说前面两个版本的启动器修复<strong>从未真正生效过</strong>。现在宿主每次启动都会<strong>幂等重写</strong>已有的 <code>launcher.ps1</code>（不创建图标），升级即生效；只有快捷方式被删掉这种情况才需要点一下重建（v0.2.6 加了「一键重建桌面快捷方式」，并在 <code>/status</code> 里暴露 <code>shortcut &#123; name, path, exists &#125;</code>）。</li>
+<li><strong>v0.2.7：别把「版本错位」报成「快捷方式不存在」。</strong> 客户端 bundle 是从磁盘实时加载的，会先于宿主更新，于是旧宿主缺的字段被误报成「快捷方式没了」。现在会<strong>显式报告客户端/宿主版本错位</strong>并提示重启，字段缺失时显示「无法确认」而不是「不存在」。</li>
+</ol>
+<h2 id="接口和配置"><a href="#接口和配置" class="headerlink" title="接口和配置"></a>接口和配置</h2><p>给想自己接一下的人。路由一共这几条（完整前缀是 <code>/api/dsh-desktop_quick_launcher/…</code>，状态变更类需要 nonce）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>路由</th>
+<th>方法</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/ping</code></td>
+<td>GET</td>
+<td>实例 id、nonce、pid、端口、运行时长</td>
+</tr>
+<tr>
+<td><code>/status</code></td>
+<td>GET</td>
+<td>实例 + <code>busy</code> + 上次启动/重启报告 + 日志路径</td>
+</tr>
+<tr>
+<td><code>/create</code></td>
+<td>POST</td>
+<td>写启动脚本 + 桌面图标</td>
+</tr>
+<tr>
+<td><code>/restart</code></td>
+<td>POST</td>
+<td>移交给独立助手后退出</td>
+</tr>
+<tr>
+<td><code>/shutdown</code></td>
+<td>POST</td>
+<td>优雅退出</td>
+</tr>
+<tr>
+<td><code>/logs</code>、<code>/logs/clear</code>、<code>/logs/open</code></td>
+<td>GET/POST</td>
+<td>日志与状态文件</td>
+</tr>
+<tr>
+<td><code>/options</code></td>
+<td>POST</td>
+<td>写入面板开关</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>安全上，所有路由<strong>仅限回环</strong>（socket 地址 + Host 头 + <code>sec-fetch-site</code> + Origin）—— 这挺重要，因为 DSH 的插件路由在浏览器登录门<strong>之外</strong>；另外所有状态变更路由都要求一个由 <code>GET /ping</code> 下发的<strong>每实例 nonce</strong>（放在 <code>x-dsh-ql-nonce</code> 头里），否则返回 <code>403 nonce-required</code>。它能挡住跨站页面盲发 POST 到 <code>127.0.0.1</code>，但<strong>挡不住本机进程</strong>（它自己就能读 <code>/ping</code>）。</p>
+<p>配置项也变多了（schemastery <code>desktop-quick-launcher</code> 命名空间）：<code>restartGraceMs</code>、<code>restartTimeoutSec</code>、<code>busyPolicy</code>（<code>block</code> | <code>warn</code>）、<code>restartMethod</code>（<code>auto</code> | <code>schtasks</code> | <code>detached</code>）、<code>helperStartTimeoutMs</code>，以及三个悬浮按钮的显示开关。</p>
+<h2 id="升级-安装"><a href="#升级-安装" class="headerlink" title="升级 / 安装"></a>升级 / 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dsh plugin --profile web add github:KLucen/dsh-desktop_quick_launcher</span><br><span class="line"><span class="comment"># 重启 dsh web（之后就可以用面板上的重启按钮了）</span></span><br></pre></td></tr></table></figure>
+<p>github.com 不通就走镜像：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsh plugin --profile web add <span class="string">&quot;https://gh-proxy.com/https://codeload.github.com/KLucen/dsh-desktop_quick_launcher/tar.gz/refs/heads/main&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>从 v0.2.5 起，升级后不需要再碰桌面图标</strong> —— 宿主启动时会重写脚本，现有快捷方式立刻用上新逻辑。开发的话仓库里有测试：<code>pnpm typecheck &amp;&amp; pnpm test</code> 会把真实的宿主半边挂到 stub cordis 上下文上，直接驱动真实的路由处理器，并注入助手的 spawn 与进程退出钩子、把 <code>DSH_HOME</code> 指向临时目录 —— 所以它不会真的拉起助手、不会退出测试进程，也不会碰你的真实 profile 和桌面。</p>
+<h2 id="已知限制（如实说）"><a href="#已知限制（如实说）" class="headerlink" title="已知限制（如实说）"></a>已知限制（如实说）</h2><ul>
+<li>重启和退出都会<strong>终止整个 <code>dsh web</code> 进程</strong>：会话会持久化并可恢复，但<strong>正在生成的回答不会被保留</strong> —— 这正是它在回合未结束时拒绝执行的原因；</li>
+<li>busy 检查读取 live session store，如果该服务缺失或 API 变化，检查会<strong>放行</strong>（并在 <code>busyCheck</code> 里记录原因）—— 改成 fail-closed 的话，重启会永久失效；想要 v0.1 那种「只报告不阻断」的行为，可以设 <code>busyPolicy: warn</code>；</li>
+<li>nonce 只挡跨站浏览器请求，挡不住本机进程；</li>
+<li>所有路由仅限回环：服务器暴露到局域网时，远程浏览器用不了；</li>
+<li>Windows 图标固定叫 <code>DSH-Web.lnk</code>，同名会被覆盖；</li>
+<li>Windows 的重启助手是 PowerShell 脚本，在禁止执行 PowerShell 的机器上只剩计划任务路径或手动重启；<strong>POSIX 上的重启助手尚未实现</strong>（那边只能等宿主退出后手动启动）；</li>
+<li>仍未发布 npm，安装走 GitHub tarball。</li>
+</ul>
+<h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>从「桌面图标 + 一键退出」到「启动 / 重启 / 退出 + 一整套诊断」，这个插件现在算是到了我自己敢天天用的程度：升级不用担心回答被掐断，出问题不用再靠猜。</p>
+<p>仓库还是那个：<a target="_blank" rel="noopener" href="https://github.com/KLucen/dsh-desktop_quick_launcher">KLucen/dsh-desktop_quick_launcher</a>（Apache-2.0），有 bug 或想法欢迎开 issue。下一篇大概就是 v0.3 的 POSIX 重启助手了 —— 如果我没偷懒的话。</p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>dsh web 快捷启动插件 v0.2：一键重启、失败诊断，和「绝不打断回答」</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://www.klucen.cn/posts/7e01b64d.html">https://www.klucen.cn/posts/7e01b64d.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>KLucen</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2026-09-10</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2026-09-10</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><div class="post-share"><div class="social-share" data-image="/%5Cimg%5CAsuka.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/73edb7ce.html" title="给 dsh web 做了个桌面快捷启动插件"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">给 dsh web 做了个桌面快捷启动插件</div></div><div class="info-2"><div class="info-item-1">给 dsh web 写了个小插件 —— dsh-desktop_quick_launcher,补上我一直觉得最缺的两块体验:双击桌面图标启动,和在界面里一键退出。 仓库在 GitHub: KLucen/dsh-desktop_quick_launcher(Apache-2.0)。 为什么会有这个插件dsh web 是本地优先的服务,日常用其实挺舒服:浏览器打开就是完整 GUI,不占资源、不上云。但「本地服务」嘛,总有点桌面应用才有的别扭感:  启动要开终端:先找到终端,敲 dsh web,等它起来,再手动开浏览器; 退出没入口:界面里没有「关掉服务」的按钮,关掉浏览器只是断开连接,服务还在后台占着 3080 端口,要么留着吃内存,要么回终端 Ctrl+C。  其实之前有 @linxin666/dsh-desktop-launcher 这个插件解决过类似问题,但它已经退役了。与其依赖别人维护,不如自己动手独立重建一个:能按自己的习惯调整,许可证干净(Apache-2.0,派生关系见仓库 NOTICE),于是就有了这个插件。 它能做什么插件是双面结构:  Host 端:cordis ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/73edb7ce.html" title="给 dsh web 做了个桌面快捷启动插件"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-09</div><div class="info-item-2">给 dsh web 做了个桌面快捷启动插件</div></div><div class="info-2"><div class="info-item-1">给 dsh web 写了个小插件 —— dsh-desktop_quick_launcher,补上我一直觉得最缺的两块体验:双击桌面图标启动,和在界面里一键退出。 仓库在 GitHub: KLucen/dsh-desktop_quick_launcher(Apache-2.0)。 为什么会有这个插件dsh web 是本地优先的服务,日常用其实挺舒服:浏览器打开就是完整 GUI,不占资源、不上云。但「本地服务」嘛,总有点桌面应用才有的别扭感:  启动要开终端:先找到终端,敲 dsh web,等它起来,再手动开浏览器; 退出没入口:界面里没有「关掉服务」的按钮,关掉浏览器只是断开连接,服务还在后台占着 3080 端口,要么留着吃内存,要么回终端 Ctrl+C。  其实之前有 @linxin666/dsh-desktop-launcher 这个插件解决过类似问题,但它已经退役了。与其依赖别人维护,不如自己动手独立重建一个:能按自己的习惯调整,许可证干净(Apache-2.0,派生关系见仓库 NOTICE),于是就有了这个插件。 它能做什么插件是双面结构:  Host 端:cordis ...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E6%83%B3%E5%85%88%E8%AF%B4%E7%9A%84%EF%BC%9A%E7%BB%9D%E4%B8%8D%E6%89%93%E6%96%AD%E6%AD%A3%E5%9C%A8%E7%94%9F%E6%88%90%E7%9A%84%E5%9B%9E%E7%AD%94"><span class="toc-text">最想先说的：绝不打断正在生成的回答</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%90%AF%E8%BF%99%E4%BB%B6%E4%BA%8B%EF%BC%8C%E6%98%AF%E6%80%8E%E4%B9%88%E6%89%8D%E8%B5%B0%E9%80%9A%E7%9A%84"><span class="toc-text">重启这件事，是怎么才走通的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E9%97%AE%E9%A2%98%E6%97%B6%EF%BC%8C%E5%88%AB%E5%86%8D%E8%AE%A9%E4%BA%BA%E7%8C%9C"><span class="toc-text">出问题时，别再让人猜</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E6%9D%BF%E5%92%8C%E8%AE%BE%E7%BD%AE%E5%8D%A1%E7%89%87"><span class="toc-text">面板和设置卡片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E3%80%8C%E4%BA%8B%E5%90%8E%E6%83%B3%E8%B5%B7%E6%9D%A5%E5%BE%88%E5%85%B3%E9%94%AE%E3%80%8D%E7%9A%84%E4%BF%AE%E5%A4%8D"><span class="toc-text">几个「事后想起来很关键」的修复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="toc-text">接口和配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7-%E5%AE%89%E8%A3%85"><span class="toc-text">升级 &#x2F; 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%B2%E7%9F%A5%E9%99%90%E5%88%B6%EF%BC%88%E5%A6%82%E5%AE%9E%E8%AF%B4%EF%BC%89"><span class="toc-text">已知限制（如实说）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%BE%E5%B7%B4"><span class="toc-text">尾巴</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-flex"><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">其他</div><div class="footer-flex-content"><a href="/gallery/" target="_blank" title="图库">图库</a><a href="/comments/" target="_blank" title="留言板">留言板</a><a href="/shuoshuo/" target="_blank" title="说说">说说</a><a href="/bangumis/" target="_blank" title="追番">追番</a><a href="/link/" target="_blank" title="友链">友链</a></div></div></div><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">框架</div><div class="footer-flex-content"><a href="https://hexo.io/zh-cn/" target="_blank" title="Hexo">Hexo</a><a href="https://butterfly.js.org/" target="_blank" title="Butterfly">Butterfly</a></div></div></div></div><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By KLucen</span><span class="framework-info"><span class="footer-separator">|</span><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div><div class="footer_custom_text">I wish you to become your own sun, no need to rely on who's light.<p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><script src="/js/tw_cn.js?v=5.5.2"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.4/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.klucen.cn/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client@3.7.1/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client@3.7.1/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'src'
+          const lazyloadNative = ''
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative}></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
+      }
+    }
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'waline-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const getComment = async (ele) => {
+    try {
+      const res = await fetch('https://waline.klucen.cn/api/comment?type=recent&count=6')
+      const result = await res.json()
+      const walineArray = result.data.map(e => {
+        return {
+          'content': changeContent(e.comment),
+          'avatar': e.avatar,
+          'nick': e.nick,
+          'url': e.url + '#' + e.objectId,
+          'date': e.time || e.insertedAt
+        }
+      })
+      btf.saveToLocal.set(keyName, JSON.stringify(walineArray), 10/(60*24))
+      generateHtml(walineArray, ele)
+    } catch (err) {
+      console.error(err)
+      ele.textContent= "无法获取评论，请确认相关配置是否正确"
+    }
+  }
+
+  run(keyName, getComment)
+})</script><div class="aplayer no-destroy" data-id="17424928095" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false"> </div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer src="/js/cursor.js"></script><script async src="//at.alicdn.com/t/font_2264842_3izu8i5eoc2.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    if (typeof loadMeting !== 'function') return
+
+    // 暂存已初始化的 fixed 播放器元素，避免被 loadMeting 重复初始化
+    const fixedElements = []
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (window.aplayers[i].options.fixed) {
+          const el = window.aplayers[i].container
+          fixedElements.push(el)
+          el.classList.remove('aplayer')
+        }
+      }
+    }
+
+    if (document.getElementsByClassName('aplayer').length) {
+      loadMeting()
+    }
+
+    // 恢复 fixed 播放器的 aplayer class
+    fixedElements.forEach(el => el.classList.add('aplayer'))
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', runMetingJS, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="/"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.2"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.klucen.cn/categories/生活/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 生活记录 (3)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.klucen.cn/categories/编程/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 编程学习 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.klucen.cn/categories/学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 学习笔记 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="https://www.klucen.cn/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var qweather_api_host = 'nj6r6pm8pt.re.qweatherapi.com';
+  var ip_api_key = 'Kq1pRjB3WyDja7rhKcWV9f5QU8';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":20,"vOffset":-15},"mobile":{"show":true},"log":false});</script></body></html>
