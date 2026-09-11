@@ -1,0 +1,520 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>用 Agent 陪读《深入理解 AI Agent》：笔记仓库开源了 | KLucenの启示录</title><meta name="author" content="KLucen"><meta name="copyright" content="KLucen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="上个月我发过一篇 《深入理解 AI Agent：设计原理与工程实践》章节精读笔记。那篇是想给”想快速了解 Agent 到底在讲什么”的人一份简单的总结性文档，看完能知道这本书大致说了什么。但也仅此而已。 而这次开源的仓库是另一种东西。它的用法不是”替你把书读了”，而是让你带着问题去读原文：  KLucen&#x2F;ai-agent-book-note（Apache-2.0）  具体怎么用：内容精读&#x2F; 里每">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Agent 陪读《深入理解 AI Agent》：笔记仓库开源了">
+<meta property="og:url" content="https://www.klucen.cn/posts/640296d4.html">
+<meta property="og:site_name" content="KLucenの启示录">
+<meta property="og:description" content="上个月我发过一篇 《深入理解 AI Agent：设计原理与工程实践》章节精读笔记。那篇是想给”想快速了解 Agent 到底在讲什么”的人一份简单的总结性文档，看完能知道这本书大致说了什么。但也仅此而已。 而这次开源的仓库是另一种东西。它的用法不是”替你把书读了”，而是让你带着问题去读原文：  KLucen&#x2F;ai-agent-book-note（Apache-2.0）  具体怎么用：内容精读&#x2F; 里每">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pics.klucen.cn//cover/Atari.jpg">
+<meta property="article:published_time" content="2026-09-11T15:50:00.000Z">
+<meta property="article:modified_time" content="2026-09-11T16:01:45.871Z">
+<meta property="article:author" content="KLucen">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="精读笔记">
+<meta property="article:tag" content="笔记分享">
+<meta property="article:tag" content="Obsidian">
+<meta property="article:tag" content="DeepSeek Harness">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pics.klucen.cn//cover/Atari.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "用 Agent 陪读《深入理解 AI Agent》：笔记仓库开源了",
+  "url": "https://www.klucen.cn/posts/640296d4.html",
+  "image": "https://pics.klucen.cn//cover/Atari.jpg",
+  "datePublished": "2026-09-11T15:50:00.000Z",
+  "dateModified": "2026-09-11T16:01:45.871Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "KLucen",
+      "url": "https://www.klucen.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://www.klucen.cn/posts/640296d4.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.4/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":5,"unescape":true,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '用 Agent 陪读《深入理解 AI Agent》：笔记仓库开源了',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="KLucenの启示录" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-image: url(/img/theme_bizhi.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/%5Cimg%5CAsuka.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-video"></i><span> 追番</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fas fa-video"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://pics.klucen.cn//cover/Atari.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">KLucenの启示录</span></a><a class="nav-page-title" href="/"><span class="site-name">用 Agent 陪读《深入理解 AI Agent》：笔记仓库开源了</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-video"></i><span> 追番</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fas fa-video"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">用 Agent 陪读《深入理解 AI Agent》：笔记仓库开源了</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-11T15:50:00.000Z" title="发表于 2026-09-11 23:50:00">2026-09-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-11T16:01:45.871Z" title="更新于 2026-09-12 00:01:45">2026-09-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2026-09-12 00:01:45&quot;}" hidden></div><p>上个月我发过一篇 <a target="_blank" rel="noopener" href="https://klucen.cn/posts/66321874.html">《深入理解 AI Agent：设计原理与工程实践》章节精读笔记</a>。那篇是想给”想快速了解 Agent 到底在讲什么”的人一份简单的总结性文档，看完能知道这本书大致说了什么。但也仅此而已。</p>
+<p>而这次开源的仓库是另一种东西。它的用法不是”替你把书读了”，而是<strong>让你带着问题去读原文</strong>：</p>
+<blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://github.com/KLucen/ai-agent-book-note">KLucen/ai-agent-book-note</a></strong>（Apache-2.0）</p>
+</blockquote>
+<p>具体怎么用：<code>内容精读/</code> 里每个小节的开头都有一组从正文里长出来的引导问题，先看问题，再去读原书对应段落，读完回来对照”读后小结”和”原文论证”。读的时候有想法、有疑问，就写进 <code>QuickNote/</code>。<strong>你也可以先看看我在里面随手记下的感悟和不明白的地方，再翻到 <code>DeepReadNote/</code>，看这些答案是不是对你也一样有帮助。</strong></p>
+<p>原书是 <a target="_blank" rel="noopener" href="https://github.com/bojieli/ai-agent-book">bojieli/ai-agent-book</a>，李博杰著，正文、编译版 PDF、每章配套代码全部开源（Apache-2.0）。我这份是<strong>非官方</strong>的个人精读笔记，不打算当原书的替代品或者翻译，它更像一份”这本书我到底是怎么读的”的完整记录。</p>
+<h2 id="里面有什么"><a href="#里面有什么" class="headerlink" title="里面有什么"></a>里面有什么</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Agent Book/</span><br><span class="line">├─ 00-阅读地图.md      全书导航：核心公式、阅读路径、进度总表</span><br><span class="line">├─ 01-精读笔记规范.md  模板与写作纪律（想复用这套方法看这份）</span><br><span class="line">├─ 02-全书术语表.md    跨章术语总表，每个术语只在首见章给权威定义</span><br><span class="line">├─ images/             原书插图副本，供笔记引用</span><br><span class="line">├─ 内容精读/           每章&quot;读&quot;：逐节深析</span><br><span class="line">├─ 实验解读/           每章&quot;做&quot;：实验逐条解读 + 动手记录区</span><br><span class="line">├─ 思考题引导/         每章&quot;考&quot;：题目原文 + 提示思路 + 自答留白</span><br><span class="line">├─ QuickNote/          我自己写的读书随笔，原始记录</span><br><span class="line">└─ DeepReadNote/       AI 对我的随笔的回应与补充</span><br></pre></td></tr></table></figure>
+<p>三个分册对应三种读法：<strong>读</strong>原书、<strong>做</strong>实验、<strong>考</strong>自己。</p>
+<p><code>内容精读/</code> 里每个小节都是同一个四段式，这是我用得最顺的部分：</p>
+<ol>
+<li><strong>带着这些问题阅读本节</strong>——问题是从该小节正文里长出来的，不是通用模板；</li>
+<li><strong>读后小结</strong>——结论层，要覆盖该节全部要点，不写空话；</li>
+<li><strong>原文论证</strong>——原书证据，逐字引用并给出处锚点；</li>
+<li><strong>取舍与延伸</strong>——工程取舍、跨章关联。</li>
+</ol>
+<p><code>实验解读/</code> 每个实验给「目的 / 设计 / 关键结论」，后面留一张<strong>动手记录区</strong>的空白表，等我复现完自己填。<code>思考题引导/</code> 只给提示思路、不剧透答案，答案在原书的 <code>reference-answers.md</code> 里，先自答再看。</p>
+<h2 id="为什么我推荐从「问题引导」读起"><a href="#为什么我推荐从「问题引导」读起" class="headerlink" title="为什么我推荐从「问题引导」读起"></a>为什么我推荐从「问题引导」读起</h2><p>这份笔记里我最想推的用法，就是先看 <code>内容精读/</code> 里那组引导问题，带着它们去读原书。</p>
+<p>说实话一开始agent提的问题真的很差，因为在规范文档里面我也做了几次的修改，包括：</p>
+<ul>
+<li><strong>引导问题规则</strong>：必须源自该小节正文实际展开的内容，正文没强调的点不许问；读完该小节应能直接回答并覆盖要点</li>
+<li><strong>小结深度规则</strong>：「读后小结」须按原文充实——保留关键定义、分类对比、机制/流程链、书中数字与案例，原则是「不看原文也能从小结复述该节内容」</li>
+</ul>
+<p>在现在这个规范下，我觉得阅读体验很不错了。大部分问题确实能把我按在”带着脑子读”的状态里，而不是眼睛扫过去、脑子没跟上；读完之后它给的小结也有分寸，该有的定义、对比、数字和案例都在，不至于浅到只剩一句正确的废话。</p>
+<p>另一个我回过神来才觉得有用的设计：<strong>笔记里引用到的原书图都留了一份副本，每张图下面还配了一句基于原文的解读</strong>。不然过几个月再回来翻，看到个 <code>fig2-3</code> 只会想”这图当初是想说明啥来着”。</p>
+<h2 id="我最想推荐的是-QuickNote-和-DeepReadNote"><a href="#我最想推荐的是-QuickNote-和-DeepReadNote" class="headerlink" title="我最想推荐的是 QuickNote 和 DeepReadNote"></a>我最想推荐的是 QuickNote 和 DeepReadNote</h2><p>读书的损耗主要发生在两处：读的时候没有焦点，读完没有反馈。引导问题管前一个，DeepReadNote 管后一个。</p>
+<p>第 1 章读完，我随手在 <code>QuickNote/Quick_note_1.md</code> 里记了六七条：想补一下 RL 到底是什么、SDK 和 API 到底怎么区分、怀疑”模型即 Agent”和”Harness 更关键”是不是自相矛盾、希望有人把贯穿全书的设计模式再讲一遍。写得十分随便，就是卡住的地方随手记。</p>
+<p>然后 AI 写了一份 <a target="_blank" rel="noopener" href="https://github.com/KLucen/ai-agent-book-note/tree/main/DeepReadNote">DeepReadNote</a>，逐条回应。举几个它真的说到点上的地方：</p>
+<ul>
+<li><strong>RL 的定位</strong>：先讲清状态/动作/奖励/策略这一套，再回到书里那张控制论视角的 Agent↔Environment 闭环图。它还告诉我这个知识缺口不用现在补，第 8 章有两节可选阅读正好讲这个，到时候按需读更省力；</li>
+<li><strong>Harness 的边界</strong>：我本来把它理解成”生产系统的完整治理层”。它指出更准确的说法是”Agent 边界内、模型之外”，而且书里的<strong>五要素（功能职责）和三层护栏（安全纵深）不是同一套划分</strong>，把两张图对齐时最容易在这踩坑；</li>
+<li><strong>五条设计模式</strong>给了个口诀：<strong>分离、按需、只增、双侧、小步</strong>（提议者-审核者 / 渐进式披露 / 只增不改 / 边界集+保留集 / 最小 diff+可回滚）。</li>
+</ul>
+<p>这大概是整份笔记里最像”讨论区”的部分：我的原始笔记一个字没改，回应放在隔壁文件，对错都摊开。</p>
+<h2 id="我给-AI-定的几条规矩"><a href="#我给-AI-定的几条规矩" class="headerlink" title="我给 AI 定的几条规矩"></a>我给 AI 定的几条规矩</h2><p>人机协作最容易出问题的地方，是最后分不清哪句话是书里说的、哪句是 AI 自己发挥的。所以：</p>
+<ol>
+<li><strong>三层标注</strong>：<code>〔原书〕</code> 书中内容 / <code>〔补充〕</code> 书外知识 / <code>〔精读批注〕</code> AI 或读者的判断；</li>
+<li><strong>引用逐字核验 + 给出处锚点</strong>。原书是 Markdown，没有页码，一律用「章 + 小节标题」定位，<strong>不许编造页码</strong>；</li>
+<li><strong>QuickNote 是我的原文，AI 只读不改</strong>；”我的批注”留白区 AI 不许填；</li>
+<li><strong>思考题提示不许泄露参考答案</strong>；</li>
+<li>若我的理解和书中结论冲突，要明确指认并给证据，不许含糊调和。</li>
+</ol>
+<p>第五条是我特意加的。顺着人说的 AI 没什么用，我要的是它能说”你这条偏了，原文是这么写的”。</p>
+<p>这些纪律本身也写在仓库里（<code>01-精读笔记规范.md</code>，现在 v2.2），想拿去写自己的精读笔记，模板可以直接抄。AI 这一侧用的是 DeepSeek Harness，也就是我现在写博客、写插件用的同一套东西。</p>
+<h2 id="一些值得注意的事情"><a href="#一些值得注意的事情" class="headerlink" title="一些值得注意的事情"></a>一些值得注意的事情</h2><ul>
+<li><strong>第 1、2 章已精读完成</strong>，第 1 章的 DeepReadNote 也有；<strong>第 3–10 章只有骨架</strong>，里面是各章主旨与大纲预览，还没填。</li>
+<li>进度确实慢。一章要产出三份分册，还得真去跑实验，快不起来。好在笔记是否完整其实不重要，疑问有没有被追到闭环才重要。</li>
+<li><strong>原生是 Obsidian 笔记</strong>，在 GitHub 上会有几处不完美：<code>[[内部链接]]</code> 点不动（得从 README 的进度表进各章）、<code>&gt; [!info]</code> 提示框变成普通引用块、文件头的 frontmatter 渲染成一张表。想要完整体验就 clone 下来，把 <code>Agent Book/</code> 当 Obsidian 库的根目录。</li>
+<li>图片是原书插图的副本（版权归原作者，依 Apache-2.0 保留署名）；笔记本体也是 Apache-2.0。</li>
+</ul>
+<h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>仓库地址：<a target="_blank" rel="noopener" href="https://github.com/KLucen/ai-agent-book-note"><strong>KLucen/ai-agent-book-note</strong></a>。</p>
+<p>笔记里的错误、不同理解、补充建议都欢迎开 issue 讨论；如果问题出在书本身，建议提到<a target="_blank" rel="noopener" href="https://github.com/bojieli/ai-agent-book/issues">原书仓库</a>。</p>
+<p>接下来该轮到第 3 章「用户记忆和知识库」了……希望下一篇不是三个月后 🫠</p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>用 Agent 陪读《深入理解 AI Agent》：笔记仓库开源了</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://www.klucen.cn/posts/640296d4.html">https://www.klucen.cn/posts/640296d4.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>KLucen</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2026-09-11</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2026-09-12</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI-Agent/">AI Agent</a><a class="post-meta__tags" href="/tags/%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/">精读笔记</a><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0%E5%88%86%E4%BA%AB/">笔记分享</a><a class="post-meta__tags" href="/tags/Obsidian/">Obsidian</a><a class="post-meta__tags" href="/tags/DeepSeek-Harness/">DeepSeek Harness</a></div><div class="post-share"><div class="social-share" data-image="https://pics.klucen.cn//cover/Atari.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/7e01b64d.html" title="dsh web 快捷启动插件 v0.2：一键重启、失败诊断，和「绝不打断回答」"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">dsh web 快捷启动插件 v0.2：一键重启、失败诊断，和「绝不打断回答」</div></div><div class="info-2"><div class="info-item-1">上一篇给 dsh web 写了桌面快捷启动插件 dsh-desktop_quick_launcher。发出来之后自己天天在用，用着用着就发现：「能用」和「敢用」之间还差着一大截。于是从 v0.1.1 一路迭代到了 v0.2.7，这篇记录一下中间加了什么。 一句话版本：桌面图标还在，但插件现在管的是启动 / 重启 / 退出三件事，而且在任何情况下都不会切断正在生成的回答。 最想先说的：绝不打断正在生成的回答装插件、升 DSH 核心、重打补丁，都要重启 dsh web。而一个「朴素」的重启按钮是很危险的：你正在等模型写完一段代码，手一滑点了重启，回答就没了。 所以 v0.2 里，「重启」和「停止」都先过一道门：  未结束的回合会阻断操作。 宿主读取 live session，套用 @deepseek-ai/dsh-session 自己的开放回合判据（由最后一个 turn/start / turn/end 边界决定），返回 409 busy 并列出相关会话。 界面上的处理比报错友好：生成期间按钮直接禁用，并提供一个「等空闲后自动重启」（客户端队列，上限 10 分钟，可取消）。 就算你排...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/66321874.html" title="《深入理解 AI Agent：设计原理与工程实践》章节精读笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-03</div><div class="info-item-2">《深入理解 AI Agent：设计原理与工程实践》章节精读笔记</div></div><div class="info-2"><div class="info-item-1">《深入理解 AI Agent：设计原理与工程实践》章节精读笔记 原书：《深入理解 AI Agent：设计原理与工程实践》 李博杰 著（Pine AI 首席科学家）版本：v1.3 · 2026 年 7 月 27 日 · 全文开源（含全部配图与配套实验代码）定位：面向工程师的 AI Agent 系统性专著。全书以”实践在前、命名在后”为立场——作者在 Pine（首个能自主与真人交互、可靠独立处理涉及金钱的敏感长程任务的通用 Agent）的实战中倒逼出大量架构原则，后来才被 Anthropic 等公司提炼为 Skill、harness、loop engineering 等名词。本书使命：帮助你理解和掌握”创造 Agent”的原则。Agent 是宇宙演化史上一种全新的存在：它能通过生成代码实现自举和自我进化。   一、全书总纲：一条公式与一条主线核心公式（全书地基） Agent = LLM + 上下文 + 工具 = 大脑 + 眼睛 + 手脚      组件 类比 广义理解     LLM（大语言模型） 大脑 不只是一组模型参数，而是整个决策内核：理解意图、思考规划、做出判断。能力来自预训...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8C%E9%9D%A2%E6%9C%89%E4%BB%80%E4%B9%88"><span class="toc-text">里面有什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E6%8E%A8%E8%8D%90%E4%BB%8E%E3%80%8C%E9%97%AE%E9%A2%98%E5%BC%95%E5%AF%BC%E3%80%8D%E8%AF%BB%E8%B5%B7"><span class="toc-text">为什么我推荐从「问题引导」读起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E6%9C%80%E6%83%B3%E6%8E%A8%E8%8D%90%E7%9A%84%E6%98%AF-QuickNote-%E5%92%8C-DeepReadNote"><span class="toc-text">我最想推荐的是 QuickNote 和 DeepReadNote</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%BB%99-AI-%E5%AE%9A%E7%9A%84%E5%87%A0%E6%9D%A1%E8%A7%84%E7%9F%A9"><span class="toc-text">我给 AI 定的几条规矩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%80%BC%E5%BE%97%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B%E6%83%85"><span class="toc-text">一些值得注意的事情</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%BE%E5%B7%B4"><span class="toc-text">尾巴</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url(https://pics.klucen.cn//cover/Atari.jpg);"><div class="footer-flex"><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">其他</div><div class="footer-flex-content"><a href="/gallery/" target="_blank" title="图库">图库</a><a href="/comments/" target="_blank" title="留言板">留言板</a><a href="/shuoshuo/" target="_blank" title="说说">说说</a><a href="/bangumis/" target="_blank" title="追番">追番</a><a href="/link/" target="_blank" title="友链">友链</a></div></div></div><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">框架</div><div class="footer-flex-content"><a href="https://hexo.io/zh-cn/" target="_blank" title="Hexo">Hexo</a><a href="https://butterfly.js.org/" target="_blank" title="Butterfly">Butterfly</a></div></div></div></div><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By KLucen</span><span class="framework-info"><span class="footer-separator">|</span><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div><div class="footer_custom_text">I wish you to become your own sun, no need to rely on who's light.<p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><script src="/js/tw_cn.js?v=5.5.2"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.4/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.klucen.cn/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client@3.7.1/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client@3.7.1/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'src'
+          const lazyloadNative = ''
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative}></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
+      }
+    }
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'waline-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const getComment = async (ele) => {
+    try {
+      const res = await fetch('https://waline.klucen.cn/api/comment?type=recent&count=6')
+      const result = await res.json()
+      const walineArray = result.data.map(e => {
+        return {
+          'content': changeContent(e.comment),
+          'avatar': e.avatar,
+          'nick': e.nick,
+          'url': e.url + '#' + e.objectId,
+          'date': e.time || e.insertedAt
+        }
+      })
+      btf.saveToLocal.set(keyName, JSON.stringify(walineArray), 10/(60*24))
+      generateHtml(walineArray, ele)
+    } catch (err) {
+      console.error(err)
+      ele.textContent= "无法获取评论，请确认相关配置是否正确"
+    }
+  }
+
+  run(keyName, getComment)
+})</script><div class="aplayer no-destroy" data-id="17424928095" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false"> </div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer src="/js/cursor.js"></script><script async src="//at.alicdn.com/t/font_2264842_3izu8i5eoc2.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    if (typeof loadMeting !== 'function') return
+
+    // 暂存已初始化的 fixed 播放器元素，避免被 loadMeting 重复初始化
+    const fixedElements = []
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (window.aplayers[i].options.fixed) {
+          const el = window.aplayers[i].container
+          fixedElements.push(el)
+          el.classList.remove('aplayer')
+        }
+      }
+    }
+
+    if (document.getElementsByClassName('aplayer').length) {
+      loadMeting()
+    }
+
+    // 恢复 fixed 播放器的 aplayer class
+    fixedElements.forEach(el => el.classList.add('aplayer'))
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', runMetingJS, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="/"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.2"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.klucen.cn/categories/生活/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 生活记录 (3)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.klucen.cn/categories/编程/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 编程学习 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.klucen.cn/categories/学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 学习笔记 (3)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="https://www.klucen.cn/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var qweather_api_host = 'nj6r6pm8pt.re.qweatherapi.com';
+  var ip_api_key = 'Kq1pRjB3WyDja7rhKcWV9f5QU8';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":20,"vOffset":-15},"mobile":{"show":true},"log":false});</script></body></html>
