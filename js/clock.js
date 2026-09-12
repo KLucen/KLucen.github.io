@@ -28,11 +28,17 @@
   if (!box) return // 只有配置了 electric_clock 且当前页面匹配时才存在
 
   // 以下变量由插件在 body 里注入（见 hexo-butterfly-clock-anzhiyu/index.js）
-  var key = typeof qweather_key !== 'undefined' && qweather_key ? qweather_key : ''
+  var key = typeof qweather_key !== 'undefined' && qweather_key ? String(qweather_key) : ''
   var host = typeof qweather_api_host !== 'undefined' && qweather_api_host
     ? qweather_api_host
     : 'nj6r6pm8pt.re.qweatherapi.com'
   var rectangle = typeof clock_rectangle !== 'undefined' && clock_rectangle ? clock_rectangle : ''
+
+  // 关键：插件在你把 qweather_key 留空时，会回落到作者硬编码的演示 key。
+  // 那个 key 已经失效（请求必 403），所以这里把它等同于「没配 key」，
+  // 免得每次打开页面都往控制台丢一条 403。等你填上自己的 key 就会自动生效。
+  var DEAD_KEYS = ['b16a1fa0e63c46a4b8f28abfb06ae3fe']
+  var weatherEnabled = !!key && DEAD_KEYS.indexOf(key) === -1 && !!rectangle
 
   // 和风天气图标码 -> 配色（沿用原脚本的取值）
   function iconColor(code) {
@@ -128,7 +134,7 @@
   // 先出时钟，天气是「锦上添花」，取不到就不动声色地保持纯时钟
   render(null)
 
-  if (key && rectangle) {
+  if (weatherEnabled) {
     fetch('https://' + host + '/v7/weather/now?location=' + encodeURIComponent(rectangle) + '&key=' + encodeURIComponent(key))
       .then(function (res) { return res.json() })
       .then(function (data) {
