@@ -1,0 +1,94 @@
+/*!
+ * music.css —— /music/ 音乐页：歌单卡片 + 专属播放器
+ * 只在音乐页用到的类名都加了 music- 前缀，不会影响站内其他页面。
+ */
+
+/* 歌单卡片栅格 */
+.music-playlists {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+  margin: 6px 0 20px;
+}
+
+.music-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(128, 128, 128, 0.28);
+  border-radius: 10px;
+  background: rgba(128, 128, 128, 0.07);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.music-card:hover {
+  transform: translateY(-2px);
+  border-color: #49b1f5;
+  box-shadow: 0 4px 14px rgba(73, 177, 245, 0.18);
+}
+
+.music-card.is-active {
+  border-color: #49b1f5;
+  background: rgba(73, 177, 245, 0.14);
+}
+
+.music-card-cover {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: rgba(128, 128, 128, 0.15);
+}
+
+.music-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.music-card-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.music-card-count {
+  font-size: 0.82em;
+  opacity: 0.65;
+}
+
+/* 专属播放器 */
+#music-page-player {
+  margin-top: 4px;
+}
+
+#music-page-status {
+  margin: 10px 0 0;
+  min-height: 1.3em;
+  font-size: 0.86em;
+  opacity: 0.72;
+}
+
+#music-page-status.is-error {
+  color: #e74c3c;
+  opacity: 1;
+}
+
+/* 音乐页隐藏全站吸底播放器（由 aplayer-mirror.js 动态加这个类） */
+.meting-fixed-hidden {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .music-playlists {
+    grid-template-columns: 1fr;
+  }
+}
