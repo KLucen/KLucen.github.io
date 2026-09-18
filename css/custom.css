@@ -260,3 +260,75 @@ svg.icon {
     left: 0 !important;
     /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
 }
+
+/* 友链页底部的「本站信息」卡片：只做展示，不跳转。
+   结构写在 source/link/index.md（放在最下面，由主题 page 内容区渲染），
+   样式放这里是因为 markdown 渲染器会把样式里的 `--` 转成破折号，写进 md 里会毁掉 CSS 变量。 */
+.flink-exchange {
+    margin: 26px auto 8px;
+    max-width: 640px;
+    padding: 24px 26px 20px;
+    background: var(--card-bg);
+    border: 1px solid rgba(128, 128, 128, 0.16);
+    border-radius: 12px;
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.flink-exchange-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--font-color);
+}
+
+.flink-exchange-avatar {
+    display: block;
+    width: 76px;
+    height: 76px;
+    margin: 16px auto 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.flink-exchange-name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--font-color);
+}
+
+.flink-exchange-desc {
+    margin-top: 2px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--font-color);
+    opacity: 0.6;
+}
+
+.flink-exchange-info {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--dark-grey);
+    font-size: 13px;
+    line-height: 2;
+    text-align: left;
+}
+
+.flink-exchange-info > div {
+    display: flex;
+    gap: 12px;
+}
+
+.flink-exchange-info .k {
+    flex: 0 0 40px;
+    color: var(--font-color);
+    opacity: 0.55;
+}
+
+.flink-exchange-info .v {
+    flex: 1 1 auto;
+    min-width: 0;
+    color: var(--font-color);
+    overflow-wrap: anywhere;
+}
