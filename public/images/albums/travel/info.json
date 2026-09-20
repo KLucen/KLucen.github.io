@@ -1,0 +1,241 @@
+{
+  "mode": "external",
+  "title": "旅游",
+  "description": "旅游的照片",
+  "cover": "https://pics.klucen.cn//travel/IMG_4391.jpg",
+  "date": "2026-09-19",
+  "location": "",
+  "tags": [],
+  "photos": [
+    {
+      "id": "travel-photo-0",
+      "src": "https://pics.klucen.cn//travel/IMG_4391.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4391.jpg",
+      "alt": "皇家哈基米",
+      "title": "皇家哈基米",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-1",
+      "src": "https://pics.klucen.cn//travel/IMG_4286.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4286.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-2",
+      "src": "https://pics.klucen.cn//travel/IMG_4293.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4293.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-3",
+      "src": "https://pics.klucen.cn//travel/IMG_4320.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4320.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-4",
+      "src": "https://pics.klucen.cn//travel/IMG_4324.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4324.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-5",
+      "src": "https://pics.klucen.cn//travel/IMG_4326.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4326.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-6",
+      "src": "https://pics.klucen.cn//travel/IMG_4327.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4327.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-7",
+      "src": "https://pics.klucen.cn//travel/IMG_4329.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4329.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-8",
+      "src": "https://pics.klucen.cn//travel/IMG_4338.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4338.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-9",
+      "src": "https://pics.klucen.cn//travel/IMG_4340.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4340.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-10",
+      "src": "https://pics.klucen.cn//travel/IMG_4365.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4365.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-11",
+      "src": "https://pics.klucen.cn//travel/IMG_4373.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4373.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-12",
+      "src": "https://pics.klucen.cn//travel/IMG_4377.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4377.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-13",
+      "src": "https://pics.klucen.cn//travel/IMG_4381.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4381.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-14",
+      "src": "https://pics.klucen.cn//travel/IMG_4382.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4382.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-15",
+      "src": "https://pics.klucen.cn//travel/IMG_4385.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4385.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-16",
+      "src": "https://pics.klucen.cn//travel/IMG_4387.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4387.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-17",
+      "src": "https://pics.klucen.cn//travel/IMG_4390.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4390.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-18",
+      "src": "https://pics.klucen.cn//travel/IMG_4265.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4265.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-19",
+      "src": "https://pics.klucen.cn//travel/IMG_4266.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4266.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-20",
+      "src": "https://pics.klucen.cn//travel/IMG_4268.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4268.jpg",
+      "alt": "学校的庭院",
+      "title": "学校的庭院",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-21",
+      "src": "https://pics.klucen.cn//travel/IMG_4271.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4271.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "travel-photo-22",
+      "src": "https://pics.klucen.cn//travel/IMG_4284.jpg",
+      "thumbnail": "https://pics.klucen.cn//travel/IMG_4284.jpg",
+      "alt": "旅游",
+      "title": "旅游",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    }
+  ]
+}

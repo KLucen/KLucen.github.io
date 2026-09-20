@@ -1,0 +1,12 @@
+npm warn Unknown project config "manage-package-manager-versions". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[2m18:56:23[22m [34m[vite][39m connected.
+[2m18:56:24[22m [34m[types][39m Generated [2m1ms[22m
+[2m18:56:24[22m [34m[vite][39m connected.
+[2m18:56:24[22m [34m[content][39m Syncing content
+[2m18:56:24[22m [34m[content][39m Astro config changed
+[2m18:56:24[22m [34m[content][39m Clearing content store
+[2m18:56:25[22m [34m[content][39m Synced content
+[42m[1m astro [22m[49m [32mv7.1.3[39m [2mready in[22m 4053 [2mms[22m
+[2m┃[22m Local    [36mhttp://localhost:4321/[39m
+[2m┃[22m Network  [36mhttp://192.168.31.221:4321/[39m
+[2m18:56:25[22m [32mwatching for file changes...[39m

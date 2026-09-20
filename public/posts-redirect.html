@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面跳转中...</title>
+    <script>
+        // 获取当前路径
+        const path = window.location.pathname;
+        
+        // 如果是 /posts/xxx.html 格式，重定向到 /posts/xxx.html/
+        if (path.match(/^\/posts\/[a-f0-9]+\.html$/)) {
+            window.location.href = path + '/';
+        } else {
+            // 其他情况跳转到首页
+            window.location.href = '/';
+        }
+    </script>
+</head>
+<body>
+    <p>页面跳转中...</p>
+</body>
+</html>

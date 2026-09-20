@@ -1,0 +1,101 @@
+{
+  "mode": "external",
+  "title": "美食",
+  "description": "美食照片",
+  "cover": "https://pics.klucen.cn//food/food.jpg",
+  "date": "2026-09-19",
+  "location": "",
+  "tags": [],
+  "photos": [
+    {
+      "id": "food-photo-0",
+      "src": "https://pics.klucen.cn//food/food.jpg",
+      "thumbnail": "https://pics.klucen.cn//food/food.jpg",
+      "alt": "冷串串",
+      "title": "冷串串",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "food-photo-1",
+      "src": "https://pics.klucen.cn//food/IMG_4342.jpg",
+      "thumbnail": "https://pics.klucen.cn//food/IMG_4342.jpg",
+      "alt": "美食",
+      "title": "美食",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "food-photo-2",
+      "src": "https://pics.klucen.cn//food/IMG_4351.jpg",
+      "thumbnail": "https://pics.klucen.cn//food/IMG_4351.jpg",
+      "alt": "美食",
+      "title": "美食",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "food-photo-3",
+      "src": "https://pics.klucen.cn//food/IMG_4353.jpg",
+      "thumbnail": "https://pics.klucen.cn//food/IMG_4353.jpg",
+      "alt": "美食",
+      "title": "美食",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "food-photo-4",
+      "src": "https://pics.klucen.cn//food/IMG_4354.jpg",
+      "thumbnail": "https://pics.klucen.cn//food/IMG_4354.jpg",
+      "alt": "美食",
+      "title": "美食",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "food-photo-5",
+      "src": "https://pics.klucen.cn//food/IMG_4355.jpg",
+      "thumbnail": "https://pics.klucen.cn//food/IMG_4355.jpg",
+      "alt": "美食",
+      "title": "美食",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "food-photo-6",
+      "src": "https://pics.klucen.cn//food/IMG_4356.jpg",
+      "thumbnail": "https://pics.klucen.cn//food/IMG_4356.jpg",
+      "alt": "美食",
+      "title": "美食",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "food-photo-7",
+      "src": "https://pics.klucen.cn//food/IMG_4357.jpg",
+      "thumbnail": "https://pics.klucen.cn//food/IMG_4357.jpg",
+      "alt": "四季民福真的好吃😋",
+      "title": "四季民福真的好吃😋",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "food-photo-8",
+      "src": "https://pics.klucen.cn//food/IMG_4358.jpg",
+      "thumbnail": "https://pics.klucen.cn//food/IMG_4358.jpg",
+      "alt": "美食",
+      "title": "美食",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    }
+  ]
+}

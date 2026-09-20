@@ -1,0 +1,111 @@
+{
+  "mode": "external",
+  "title": "二次元",
+  "description": "关于二次元的图片",
+  "cover": "https://pics.klucen.cn//bangumi/bangumi.jpg",
+  "date": "2026-09-19",
+  "location": "",
+  "tags": [],
+  "photos": [
+    {
+      "id": "bangumi-photo-0",
+      "src": "https://pics.klucen.cn//bangumi/bangumi.jpg",
+      "thumbnail": "https://pics.klucen.cn//bangumi/bangumi.jpg",
+      "alt": "二次元",
+      "title": "二次元",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "bangumi-photo-1",
+      "src": "https://pics.klucen.cn//bangumi/preview.jpg",
+      "thumbnail": "https://pics.klucen.cn//bangumi/preview.jpg",
+      "alt": "二次元",
+      "title": "二次元",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "bangumi-photo-2",
+      "src": "https://pics.klucen.cn//bangumi/d074f0b5fa76eb161f850250eaf45bd.jpg",
+      "thumbnail": "https://pics.klucen.cn//bangumi/d074f0b5fa76eb161f850250eaf45bd.jpg",
+      "alt": "二次元",
+      "title": "二次元",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "bangumi-photo-3",
+      "src": "https://pics.klucen.cn//bangumi/Asuka.jpg",
+      "thumbnail": "https://pics.klucen.cn//bangumi/Asuka.jpg",
+      "alt": "二次元",
+      "title": "二次元",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "bangumi-photo-4",
+      "src": "https://pics.klucen.cn//bangumi/0d8e26c3d921b559fe.jpg",
+      "thumbnail": "https://pics.klucen.cn//bangumi/0d8e26c3d921b559fe.jpg",
+      "alt": "二次元",
+      "title": "二次元",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "bangumi-photo-5",
+      "src": "https://pics.klucen.cn//bangumi/18dcbc357522fc6e7166a0d78824a3e1be1b9e14.png%401192w.webp",
+      "thumbnail": "https://pics.klucen.cn//bangumi/18dcbc357522fc6e7166a0d78824a3e1be1b9e14.png%401192w.webp",
+      "alt": "二次元",
+      "title": "二次元",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "bangumi-photo-6",
+      "src": "https://pics.klucen.cn//bangumi/18f2dad6abad62c72291f9e6d7955aa.jpg",
+      "thumbnail": "https://pics.klucen.cn//bangumi/18f2dad6abad62c72291f9e6d7955aa.jpg",
+      "alt": "二次元",
+      "title": "二次元",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "bangumi-photo-7",
+      "src": "https://pics.klucen.cn//bangumi/73dac64f1996c68706.jpg",
+      "thumbnail": "https://pics.klucen.cn//bangumi/73dac64f1996c68706.jpg",
+      "alt": "二次元",
+      "title": "二次元",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "bangumi-photo-8",
+      "src": "https://pics.klucen.cn//bangumi/67626fd226ea4137b80c149a0b4d67e.jpg",
+      "thumbnail": "https://pics.klucen.cn//bangumi/67626fd226ea4137b80c149a0b4d67e.jpg",
+      "alt": "二次元",
+      "title": "二次元",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "bangumi-photo-9",
+      "src": "https://pics.klucen.cn//bangumi/63945518.jpg",
+      "thumbnail": "https://pics.klucen.cn//bangumi/63945518.jpg",
+      "alt": "二次元",
+      "title": "二次元",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    }
+  ]
+}

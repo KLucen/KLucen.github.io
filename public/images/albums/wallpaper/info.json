@@ -1,0 +1,111 @@
+{
+  "mode": "external",
+  "title": "壁纸",
+  "description": "壁纸",
+  "cover": "https://pic-bed-1sw.pages.dev//wallpaper/wallpaper.jpg",
+  "date": "2026-09-19",
+  "location": "",
+  "tags": [],
+  "photos": [
+    {
+      "id": "wallpaper-photo-0",
+      "src": "https://pic-bed-1sw.pages.dev//wallpaper/wallpaper.jpg",
+      "thumbnail": "https://pic-bed-1sw.pages.dev//wallpaper/wallpaper.jpg",
+      "alt": "壁纸",
+      "title": "壁纸",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "wallpaper-photo-1",
+      "src": "https://pics.klucen.cn//wallpaper/bizhihui_com_202504061743931435838716.jpg",
+      "thumbnail": "https://pics.klucen.cn//wallpaper/bizhihui_com_202504061743931435838716.jpg",
+      "alt": "壁纸",
+      "title": "壁纸",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "wallpaper-photo-2",
+      "src": "https://pics.klucen.cn//wallpaper/OIP-C.jpg",
+      "thumbnail": "https://pics.klucen.cn//wallpaper/OIP-C.jpg",
+      "alt": "壁纸",
+      "title": "壁纸",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "wallpaper-photo-3",
+      "src": "https://pics.klucen.cn//wallpaper/R-C.jpg",
+      "thumbnail": "https://pics.klucen.cn//wallpaper/R-C.jpg",
+      "alt": "壁纸",
+      "title": "壁纸",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "wallpaper-photo-4",
+      "src": "https://pics.klucen.cn//wallpaper/20250419033923174500516318725.jpg",
+      "thumbnail": "https://pics.klucen.cn//wallpaper/20250419033923174500516318725.jpg",
+      "alt": "壁纸",
+      "title": "壁纸",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "wallpaper-photo-5",
+      "src": "https://pics.klucen.cn//wallpaper/20250510092014174684001431803.png",
+      "thumbnail": "https://pics.klucen.cn//wallpaper/20250510092014174684001431803.png",
+      "alt": "壁纸",
+      "title": "壁纸",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "wallpaper-photo-6",
+      "src": "https://pics.klucen.cn//wallpaper/20250604004111174896887175072.png",
+      "thumbnail": "https://pics.klucen.cn//wallpaper/20250604004111174896887175072.png",
+      "alt": "壁纸",
+      "title": "壁纸",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "wallpaper-photo-7",
+      "src": "https://pics.klucen.cn//wallpaper/bizhihui_com_202503291743236806344756.jpg",
+      "thumbnail": "https://pics.klucen.cn//wallpaper/bizhihui_com_202503291743236806344756.jpg",
+      "alt": "壁纸",
+      "title": "壁纸",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "wallpaper-photo-8",
+      "src": "https://pics.klucen.cn//wallpaper/bizhihui_com_20231111141143169968310317261.jpg",
+      "thumbnail": "https://pics.klucen.cn//wallpaper/bizhihui_com_20231111141143169968310317261.jpg",
+      "alt": "壁纸",
+      "title": "壁纸",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "wallpaper-photo-9",
+      "src": "https://pics.klucen.cn//wallpaper/bizhihui_com_20231110234055169963085548497.png",
+      "thumbnail": "https://pics.klucen.cn//wallpaper/bizhihui_com_20231110234055169963085548497.png",
+      "alt": "壁纸",
+      "title": "壁纸",
+      "description": "",
+      "tags": [],
+      "date": "2026-09-19"
+    }
+  ]
+}
