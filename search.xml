@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Hello World</title>
+      <link href="/posts/4a17b156.html"/>
+      <url>/posts/4a17b156.html</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第一篇文章</title>
+      <link href="/posts/5c2fafc7.html"/>
+      <url>/posts/5c2fafc7.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="这是我的第一篇测试文章"><a href="#这是我的第一篇测试文章" class="headerlink" title="这是我的第一篇测试文章"></a>这是我的第一篇测试文章</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 标签1 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用 Agent 陪读《深入理解 AI Agent》：笔记仓库开源了</title>
       <link href="/posts/640296d4.html"/>
       <url>/posts/640296d4.html</url>
@@ -214,57 +252,8 @@
     </entry>
     
     
-    
-    <entry>
-      <title>第一篇文章</title>
-      <link href="/posts/5c2fafc7.html"/>
-      <url>/posts/5c2fafc7.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是我的第一篇测试文章"><a href="#这是我的第一篇测试文章" class="headerlink" title="这是我的第一篇测试文章"></a>这是我的第一篇测试文章</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 标签1 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/posts/4a17b156.html"/>
-      <url>/posts/4a17b156.html</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
   
   
-    
-    
-    <entry>
-      <title></title>
-      <link href="/manifest.json"/>
-      <url>/manifest.json</url>
-      
-        <content type="html"><![CDATA[{"name":"KLucenの启示录","short_name":"KLucen","description":"KLucen的博客","lang":"zh-CN","start_url":"/","scope":"/","display":"standalone","background_color":"#ffffff","theme_color":"#49b1f5","icons":[{"src":"/img/pwa-192.png?v=2","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"/img/pwa-512.png?v=2","sizes":"512x512","type":"image/png","purpose":"any"},{"src":"/img/pwa-512.png?v=2","sizes":"512x512","type":"image/png","purpose":"maskable"}]}]]></content>
-      
-    </entry>
-    
     
     
     <entry>
@@ -279,55 +268,11 @@
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://ghchart.rshah.org/KLucen" alt="KLucen's Github chart" / loading='lazy'></p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
-      <link href="/css/custom.css"/>
-      <url>/css/custom.css</url>
+      <link href="/manifest.json"/>
+      <url>/manifest.json</url>
       
-        <content type="html"><![CDATA[/* 页脚与头图透明 */#footer {    background: transparent !important;}#page-header {    background: transparent !important;}/* 白天模式遮罩透明 */#footer::before {    background: transparent !important;}#page-header::before {    background: transparent !important;}/* 夜间模式遮罩透明 */[data-theme="dark"] #footer::before {    background: transparent !important;}[data-theme="dark"] #page-header::before {    background: transparent !important;}#aside-content>.card-widget.card-info {    background: linear-gradient(-45deg,            #e8d8b9,            #eccec5,            #a3e9eb,            #bdbdf0,            #eec1ea);    box-shadow: 0 0 5px rgb(66, 68, 68);    position: relative;    background-size: 400% 400%;    -webkit-animation: Gradient 10s ease infinite;    -moz-animation: Gradient 10s ease infinite;    animation: Gradient 10s ease infinite !important;}@-webkit-keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}@-moz-keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}@keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}/* 黑夜模式适配 */[data-theme="dark"] #aside-content>.card-widget.card-info {    background: #191919ee;}/* 个人信息Follow me按钮 */#aside-content>.card-widget.card-info>#card-info-btn {    background-color: #3eb8be;    border-radius: 8px;}/* 小冰分类分类磁铁黑夜模式适配 *//* 一般状态 */[data-theme="dark"] .magnet_link_context {    background: #1e1e1e;    color: antiquewhite;}/* 鼠标悬浮状态 */[data-theme="dark"] .magnet_link_context:hover {    background: #3ecdf1;    color: #f2f2f2;}/* 一级菜单居中 */#nav .menus_items {    position: absolute !important;    width: fit-content !important;    left: 50% !important;    transform: translateX(-50%) !important;}/* 子菜单横向展示 */#nav .menus_items .menus_item:hover .menus_item_child {    display: flex !important;   }.menus_items .menus_item:nth-child(5) .menus_item_child{    left:-120px;}/* 鼠标样式 */#cursor {    position: fixed;    width: 16px;    height: 16px;    /* 这里改变跟随的底色 */    background: rgb(57, 197, 187);    border-radius: 8px;    opacity: 0.25;    z-index: 10086;    pointer-events: none;    transition: 0.2s ease-in-out;    transition-property: background, opacity, transform;}#cursor.hidden {    opacity: 0;}#cursor.hover {    opacity: 0.1;    transform: scale(2.5);    -webkit-transform: scale(2.5);    -moz-transform: scale(2.5);    -ms-transform: scale(2.5);    -o-transform: scale(2.5);}#cursor.active {    opacity: 0.5;    transform: scale(0.5);    -webkit-transform: scale(0.5);    -moz-transform: scale(0.5);    -ms-transform: scale(0.5);    -o-transform: scale(0.5);}:root {    --trans-light: rgba(255, 255, 255, 0.88);    --trans-dark: rgba(25, 25, 25, 0.88);    --border-style: 1px solid rgb(169, 169, 169);    --backdrop-filter: blur(5px) saturate(150%);}/* 首页文章卡片 */#recent-posts>.recent-post-item {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border-radius: 25px;    border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border-radius: 18px;    border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border: var(--border-style);    border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {    background: rgba(255, 255, 255, 0.75);    backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {    background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts>.recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {    background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {    background: transparent !important;}[data-theme="dark"] #page-header::before {    background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {    background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {    background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {    background: rgba(25, 25, 25, 0.9) !important;    color: #ffffff;}[data-theme="dark"] .read-mode div#post {    background: rgba(25, 25, 25, 0.9) !important;    color: #ffffff;}svg.icon {    /* 这里定义svg.icon，避免和Butterfly自带的note标签冲突 */    width: 1em;    height: 1em;    /* width和height定义图标的默认宽度和高度*/    vertical-align: -0.15em;    fill: currentColor;    overflow: hidden;}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {    left: -66px !important;    /* 默认情况下缩进左侧66px，只留一点箭头部分 */}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {    left: 0 !important;    /* 鼠标悬停是左侧缩进归零，完全显示按钮 */}/* 友链页底部的「本站信息」卡片：只做展示，不跳转。   结构写在 source/link/index.md（放在最下面，由主题 page 内容区渲染），   样式放这里是因为 markdown 渲染器会把样式里的 `--` 转成破折号，写进 md 里会毁掉 CSS 变量。 */.flink-exchange {    margin: 26px auto 8px;    max-width: 640px;    padding: 24px 26px 20px;    background: var(--card-bg);    border: 1px solid rgba(128, 128, 128, 0.16);    border-radius: 12px;    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);    text-align: center;}.flink-exchange-title {    font-size: 16px;    font-weight: 700;    color: var(--font-color);}.flink-exchange-avatar {    display: block;    width: 76px;    height: 76px;    margin: 16px auto 10px;    border-radius: 50%;    object-fit: cover;    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);}.flink-exchange-name {    font-size: 18px;    font-weight: 700;    line-height: 1.5;    color: var(--font-color);}.flink-exchange-desc {    margin-top: 2px;    font-size: 13px;    line-height: 1.6;    color: var(--font-color);    opacity: 0.6;}.flink-exchange-info {    margin-top: 18px;    padding-top: 14px;    border-top: 1px dashed var(--dark-grey);    font-size: 13px;    line-height: 2;    text-align: left;}.flink-exchange-info > div {    display: flex;    gap: 12px;}.flink-exchange-info .k {    flex: 0 0 40px;    color: var(--font-color);    opacity: 0.55;}.flink-exchange-info .v {    flex: 1 1 auto;    min-width: 0;    color: var(--font-color);    overflow-wrap: anywhere;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/runtime.css"/>
-      <url>/css/runtime.css</url>
-      
-        <content type="html"><![CDATA[/*电子钟字体*/@font-face {    font-family: 'UnidreamLED';    src: url("https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/UnidreamLED.ttf");    font-display: swap;}div#runtime {    width: 180px;    margin: auto;    color: #fff;    padding-inline: 5px;    border-radius: 10px;    background-color: rgba(0, 0, 0, 0.7);    font-family: 'UnidreamLED';}[data-theme="dark"] div#runtime {    color: #28b4c8;    box-shadow: 0 0 5px rgba(28, 69, 218, 0.71);    animation: flashlight 1s linear infinite alternate;}/*悬停显示徽标提示语*/a.github-badge:hover:before {    position: fixed;    width: fit-content;    margin: auto;    left: 0;    right: 0;    top: 10%;    border-radius: 10px;    text-align: center;    z-index: 100;    content: attr(data-title);    font-size: 20px;    color: #fff;    padding: 10px;    background-color: var(--text-bg-hover);}[data-theme=dark] a.github-badge:hover:before {    background-color: rgba(18, 18, 18, 0.8);}@-moz-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@-webkit-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@-o-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/music.css"/>
-      <url>/css/music.css</url>
-      
-        <content type="html"><![CDATA[/*! * music.css —— /music/ 音乐页：歌单卡片 + 专属播放器 * 只在音乐页用到的类名都加了 music- 前缀，不会影响站内其他页面。 *//* 歌单卡片栅格 */.music-playlists {  display: grid;  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));  gap: 14px;  margin: 6px 0 20px;}.music-card {  display: flex;  align-items: center;  gap: 12px;  padding: 10px 12px;  border: 1px solid rgba(128, 128, 128, 0.28);  border-radius: 10px;  background: rgba(128, 128, 128, 0.07);  color: inherit;  font: inherit;  text-align: left;  cursor: pointer;  transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;}.music-card:hover {  transform: translateY(-2px);  border-color: #49b1f5;  box-shadow: 0 4px 14px rgba(73, 177, 245, 0.18);}.music-card.is-active {  border-color: #49b1f5;  background: rgba(73, 177, 245, 0.14);}.music-card-cover {  flex: 0 0 auto;  width: 56px;  height: 56px;  border-radius: 8px;  object-fit: cover;  background: rgba(128, 128, 128, 0.15);}.music-card-meta {  display: flex;  flex-direction: column;  gap: 4px;  min-width: 0;}.music-card-name {  font-weight: 600;  overflow: hidden;  text-overflow: ellipsis;  white-space: nowrap;}.music-card-count {  font-size: 0.82em;  opacity: 0.65;}/* 专属播放器 */#music-page-player {  margin-top: 4px;}#music-page-status {  margin: 10px 0 0;  min-height: 1.3em;  font-size: 0.86em;  opacity: 0.72;}#music-page-status.is-error {  color: #e74c3c;  opacity: 1;}/* 音乐页隐藏全站吸底播放器（由 aplayer-mirror.js 动态加这个类） */.meting-fixed-hidden {  display: none !important;}@media (max-width: 600px) {  .music-playlists {    grid-template-columns: 1fr;  }}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/universe.css"/>
-      <url>/css/universe.css</url>
-      
-        <content type="html"><![CDATA[/* 背景宇宙星光  */#universe {    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;}]]></content>
+        <content type="html"><![CDATA[{"name":"KLucenの启示录","short_name":"KLucen","description":"KLucen的博客","lang":"zh-CN","start_url":"/","scope":"/","display":"standalone","background_color":"#ffffff","theme_color":"#49b1f5","icons":[{"src":"/img/pwa-192.png?v=2","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"/img/pwa-512.png?v=2","sizes":"512x512","type":"image/png","purpose":"any"},{"src":"/img/pwa-512.png?v=2","sizes":"512x512","type":"image/png","purpose":"maskable"}]}]]></content>
       
     </entry>
     
@@ -357,6 +302,83 @@
     
     <entry>
       <title></title>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
+      
+        <content type="html"><![CDATA[/* 页脚与头图透明 */#footer {    background: transparent !important;}#page-header {    background: transparent !important;}/* 白天模式遮罩透明 */#footer::before {    background: transparent !important;}#page-header::before {    background: transparent !important;}/* 夜间模式遮罩透明 */[data-theme="dark"] #footer::before {    background: transparent !important;}[data-theme="dark"] #page-header::before {    background: transparent !important;}#aside-content>.card-widget.card-info {    background: linear-gradient(-45deg,            #e8d8b9,            #eccec5,            #a3e9eb,            #bdbdf0,            #eec1ea);    box-shadow: 0 0 5px rgb(66, 68, 68);    position: relative;    background-size: 400% 400%;    -webkit-animation: Gradient 10s ease infinite;    -moz-animation: Gradient 10s ease infinite;    animation: Gradient 10s ease infinite !important;}@-webkit-keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}@-moz-keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}@keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}/* 黑夜模式适配 */[data-theme="dark"] #aside-content>.card-widget.card-info {    background: #191919ee;}/* 个人信息Follow me按钮 */#aside-content>.card-widget.card-info>#card-info-btn {    background-color: #3eb8be;    border-radius: 8px;}/* 小冰分类分类磁铁黑夜模式适配 *//* 一般状态 */[data-theme="dark"] .magnet_link_context {    background: #1e1e1e;    color: antiquewhite;}/* 鼠标悬浮状态 */[data-theme="dark"] .magnet_link_context:hover {    background: #3ecdf1;    color: #f2f2f2;}/* 一级菜单居中 */#nav .menus_items {    position: absolute !important;    width: fit-content !important;    left: 50% !important;    transform: translateX(-50%) !important;}/* 子菜单横向展示 */#nav .menus_items .menus_item:hover .menus_item_child {    display: flex !important;   }.menus_items .menus_item:nth-child(5) .menus_item_child{    left:-120px;}/* 鼠标样式 */#cursor {    position: fixed;    width: 16px;    height: 16px;    /* 这里改变跟随的底色 */    background: rgb(57, 197, 187);    border-radius: 8px;    opacity: 0.25;    z-index: 10086;    pointer-events: none;    transition: 0.2s ease-in-out;    transition-property: background, opacity, transform;}#cursor.hidden {    opacity: 0;}#cursor.hover {    opacity: 0.1;    transform: scale(2.5);    -webkit-transform: scale(2.5);    -moz-transform: scale(2.5);    -ms-transform: scale(2.5);    -o-transform: scale(2.5);}#cursor.active {    opacity: 0.5;    transform: scale(0.5);    -webkit-transform: scale(0.5);    -moz-transform: scale(0.5);    -ms-transform: scale(0.5);    -o-transform: scale(0.5);}:root {    --trans-light: rgba(255, 255, 255, 0.88);    --trans-dark: rgba(25, 25, 25, 0.88);    --border-style: 1px solid rgb(169, 169, 169);    --backdrop-filter: blur(5px) saturate(150%);}/* 首页文章卡片 */#recent-posts>.recent-post-item {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border-radius: 25px;    border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border-radius: 18px;    border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border: var(--border-style);    border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {    background: rgba(255, 255, 255, 0.75);    backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {    background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts>.recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {    background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {    background: transparent !important;}[data-theme="dark"] #page-header::before {    background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {    background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {    background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {    background: rgba(25, 25, 25, 0.9) !important;    color: #ffffff;}[data-theme="dark"] .read-mode div#post {    background: rgba(25, 25, 25, 0.9) !important;    color: #ffffff;}svg.icon {    /* 这里定义svg.icon，避免和Butterfly自带的note标签冲突 */    width: 1em;    height: 1em;    /* width和height定义图标的默认宽度和高度*/    vertical-align: -0.15em;    fill: currentColor;    overflow: hidden;}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {    left: -66px !important;    /* 默认情况下缩进左侧66px，只留一点箭头部分 */}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {    left: 0 !important;    /* 鼠标悬停是左侧缩进归零，完全显示按钮 */}/* 友链页底部的「本站信息」卡片：只做展示，不跳转。   结构写在 source/link/index.md（放在最下面，由主题 page 内容区渲染），   样式放这里是因为 markdown 渲染器会把样式里的 `--` 转成破折号，写进 md 里会毁掉 CSS 变量。 */.flink-exchange {    margin: 26px auto 8px;    max-width: 640px;    padding: 24px 26px 20px;    background: var(--card-bg);    border: 1px solid rgba(128, 128, 128, 0.16);    border-radius: 12px;    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);    text-align: center;}.flink-exchange-title {    font-size: 16px;    font-weight: 700;    color: var(--font-color);}.flink-exchange-avatar {    display: block;    width: 76px;    height: 76px;    margin: 16px auto 10px;    border-radius: 50%;    object-fit: cover;    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);}.flink-exchange-name {    font-size: 18px;    font-weight: 700;    line-height: 1.5;    color: var(--font-color);}.flink-exchange-desc {    margin-top: 2px;    font-size: 13px;    line-height: 1.6;    color: var(--font-color);    opacity: 0.6;}.flink-exchange-info {    margin-top: 18px;    padding-top: 14px;    border-top: 1px dashed var(--dark-grey);    font-size: 13px;    line-height: 2;    text-align: left;}.flink-exchange-info > div {    display: flex;    gap: 12px;}.flink-exchange-info .k {    flex: 0 0 40px;    color: var(--font-color);    opacity: 0.55;}.flink-exchange-info .v {    flex: 1 1 auto;    min-width: 0;    color: var(--font-color);    overflow-wrap: anywhere;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://ghchart.rshah.org/KLucen" alt="KLucen's Github chart" / loading='lazy'></p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/music.css"/>
+      <url>/css/music.css</url>
+      
+        <content type="html"><![CDATA[/*! * music.css —— /music/ 音乐页：歌单卡片 + 专属播放器 * 只在音乐页用到的类名都加了 music- 前缀，不会影响站内其他页面。 *//* 歌单卡片栅格 */.music-playlists {  display: grid;  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));  gap: 14px;  margin: 6px 0 20px;}.music-card {  display: flex;  align-items: center;  gap: 12px;  padding: 10px 12px;  border: 1px solid rgba(128, 128, 128, 0.28);  border-radius: 10px;  background: rgba(128, 128, 128, 0.07);  color: inherit;  font: inherit;  text-align: left;  cursor: pointer;  transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;}.music-card:hover {  transform: translateY(-2px);  border-color: #49b1f5;  box-shadow: 0 4px 14px rgba(73, 177, 245, 0.18);}.music-card.is-active {  border-color: #49b1f5;  background: rgba(73, 177, 245, 0.14);}.music-card-cover {  flex: 0 0 auto;  width: 56px;  height: 56px;  border-radius: 8px;  object-fit: cover;  background: rgba(128, 128, 128, 0.15);}.music-card-meta {  display: flex;  flex-direction: column;  gap: 4px;  min-width: 0;}.music-card-name {  font-weight: 600;  overflow: hidden;  text-overflow: ellipsis;  white-space: nowrap;}.music-card-count {  font-size: 0.82em;  opacity: 0.65;}/* 专属播放器 */#music-page-player {  margin-top: 4px;}#music-page-status {  margin: 10px 0 0;  min-height: 1.3em;  font-size: 0.86em;  opacity: 0.72;}#music-page-status.is-error {  color: #e74c3c;  opacity: 1;}/* 音乐页隐藏全站吸底播放器（由 aplayer-mirror.js 动态加这个类） */.meting-fixed-hidden {  display: none !important;}@media (max-width: 600px) {  .music-playlists {    grid-template-columns: 1fr;  }}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/runtime.css"/>
+      <url>/css/runtime.css</url>
+      
+        <content type="html"><![CDATA[/*电子钟字体*/@font-face {    font-family: 'UnidreamLED';    src: url("https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/UnidreamLED.ttf");    font-display: swap;}div#runtime {    width: 180px;    margin: auto;    color: #fff;    padding-inline: 5px;    border-radius: 10px;    background-color: rgba(0, 0, 0, 0.7);    font-family: 'UnidreamLED';}[data-theme="dark"] div#runtime {    color: #28b4c8;    box-shadow: 0 0 5px rgba(28, 69, 218, 0.71);    animation: flashlight 1s linear infinite alternate;}/*悬停显示徽标提示语*/a.github-badge:hover:before {    position: fixed;    width: fit-content;    margin: auto;    left: 0;    right: 0;    top: 10%;    border-radius: 10px;    text-align: center;    z-index: 100;    content: attr(data-title);    font-size: 20px;    color: #fff;    padding: 10px;    background-color: var(--text-bg-hover);}[data-theme=dark] a.github-badge:hover:before {    background-color: rgba(18, 18, 18, 0.8);}@-moz-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@-webkit-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@-o-keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}@keyframes flashlight {    from {        box-shadow: 0 0 5px #1478d2;    }    to {        box-shadow: 0 0 2px #1478d2;    }}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/universe.css"/>
+      <url>/css/universe.css</url>
+      
+        <content type="html"><![CDATA[/* 背景宇宙星光  */#universe {    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>相册簿</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
+      
+        <content type="html"><![CDATA[<div class="gallery-group-main"><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pics.klucen.cn//GEM/GEM.JPG' alt="Group Image Gallery" loading='lazy'>    <figcaption>      <div class="gallery-group-name">邓紫棋</div>      <p>GEM</p>      <a href='/gallery/GEM'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pics.klucen.cn//bangumi/bangumi.jpg' alt="Group Image Gallery" loading='lazy'>    <figcaption>      <div class="gallery-group-name">二次元</div>      <p>关于二次元的图片</p>      <a href='/gallery/bangumi'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pic-bed-1sw.pages.dev//wallpaper/wallpaper.jpg' alt="Group Image Gallery" loading='lazy'>    <figcaption>      <div class="gallery-group-name">壁纸</div>      <p>壁纸</p>      <a href='/gallery/wallpaper'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pics.klucen.cn//travel/IMG_4391.jpg' alt="Group Image Gallery" loading='lazy'>    <figcaption>      <div class="gallery-group-name">旅游</div>      <p>旅游的照片</p>      <a href='/gallery/travel'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pics.klucen.cn//food/food.jpg' alt="Group Image Gallery" loading='lazy'>    <figcaption>      <div class="gallery-group-name">美食</div>      <p>美食照片</p>      <a href='/gallery/food'></a>    </figcaption>  </figure></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友情链接</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[<div class="flink-exchange"><div class="flink-exchange-title">欢迎各位大佬交换友链！</div><img class="flink-exchange-avatar no-lightbox" src="https://pics.klucen.cn//bangumi/Asuka.jpg" alt="KLucenの启示录" loading='lazy'><div class="flink-exchange-name">KLucenの启示录</div><div class="flink-exchange-desc">Lass den Wind mich in die Ferne treiben.</div><div class="flink-exchange-info"><div><span class="k">名称</span><span class="v">KLucenの启示录</span></div><div><span class="k">简介</span><span class="v">Lass den Wind mich in die Ferne treiben.</span></div><div><span class="k">链接</span><span class="v">https://www.klucen.cn/</span></div><div><span class="k">头像</span><span class="v">https://pics.klucen.cn//bangumi/Asuka.jpg</span></div></div></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
       <link href="/js/aplayer-mirror.js"/>
       <url>/js/aplayer-mirror.js</url>
       
@@ -378,11 +400,11 @@
     
     
     <entry>
-      <title>相册簿</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
+      <title></title>
+      <link href="/js/cursor.js"/>
+      <url>/js/cursor.js</url>
       
-        <content type="html"><![CDATA[<div class="gallery-group-main"><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pics.klucen.cn//GEM/GEM.JPG' alt="Group Image Gallery" loading='lazy'>    <figcaption>      <div class="gallery-group-name">邓紫棋</div>      <p>GEM</p>      <a href='/gallery/GEM'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pics.klucen.cn//bangumi/bangumi.jpg' alt="Group Image Gallery" loading='lazy'>    <figcaption>      <div class="gallery-group-name">二次元</div>      <p>关于二次元的图片</p>      <a href='/gallery/bangumi'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pic-bed-1sw.pages.dev//wallpaper/wallpaper.jpg' alt="Group Image Gallery" loading='lazy'>    <figcaption>      <div class="gallery-group-name">壁纸</div>      <p>壁纸</p>      <a href='/gallery/wallpaper'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pics.klucen.cn//travel/IMG_4391.jpg' alt="Group Image Gallery" loading='lazy'>    <figcaption>      <div class="gallery-group-name">旅游</div>      <p>旅游的照片</p>      <a href='/gallery/travel'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pics.klucen.cn//food/food.jpg' alt="Group Image Gallery" loading='lazy'>    <figcaption>      <div class="gallery-group-name">美食</div>      <p>美食照片</p>      <a href='/gallery/food'></a>    </figcaption>  </figure></div>]]></content>
+        <content type="html"><![CDATA[var CURSOR;Math.lerp = (a, b, n) => (1 - n) * a + n * b;const getStyle = (el, attr) => {    try {        return window.getComputedStyle            ? window.getComputedStyle(el)[attr]            : el.currentStyle[attr];    } catch (e) {}    return "";};class Cursor {    constructor() {        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    move(left, top) {        this.cursor.style["left"] = `${left}px`;        this.cursor.style["top"] = `${top}px`;    }    create() {        if (!this.cursor) {            this.cursor = document.createElement("div");            this.cursor.id = "cursor";            this.cursor.classList.add("hidden");            document.body.append(this.cursor);        }        var el = document.getElementsByTagName('*');        for (let i = 0; i < el.length; i++)            if (getStyle(el[i], "cursor") == "pointer")                this.pt.push(el[i].outerHTML);        document.body.appendChild((this.scr = document.createElement("style")));        // 这里改变鼠标指针的颜色 由svg生成        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='.5'/></svg>") 4 4, auto}`;    }    refresh() {        this.scr.remove();        this.cursor.classList.remove("hover");        this.cursor.classList.remove("active");        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    init() {        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};        document.onmouseenter = e => this.cursor.classList.remove("hidden");        document.onmouseleave = e => this.cursor.classList.add("hidden");        document.onmousedown  = e => this.cursor.classList.add("active");        document.onmouseup    = e => this.cursor.classList.remove("active");    }    render() {        if (this.pos.prev) {            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);            this.move(this.pos.prev.x, this.pos.prev.y);        } else {            this.pos.prev = this.pos.curr;        }        requestAnimationFrame(() => this.render());    }}(() => {    CURSOR = new Cursor();    // 需要重新获取列表时，使用 CURSOR.refresh()})();]]></content>
       
     </entry>
     
@@ -400,44 +422,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
+      <title>说说</title>
+      <link href="/shuoshuo/index.html"/>
+      <url>/shuoshuo/index.html</url>
       
-        <content type="html"><![CDATA[setInterval(() => {  let create_time = Math.round(new Date('2019-04-17 00:00:00').getTime() / 1000); //在此行修改建站时间  let timestamp = Math.round((new Date().getTime()) / 1000);  let second = timestamp - create_time;  let time = new Array(0, 0, 0, 0, 0);  var nol = function(h){    return h>9?h:'0'+h;  }  if (second >= 365 * 24 * 3600) {    time[0] = parseInt(second / (365 * 24 * 3600));    second %= 365 * 24 * 3600;  }  if (second >= 24 * 3600) {    time[1] = parseInt(second / (24 * 3600));    second %= 24 * 3600;  }  if (second >= 3600) {    time[2] = nol(parseInt(second / 3600));    second %= 3600;  }  if (second >= 60) {    time[3] = nol(parseInt(second / 60));    second %= 60;  }  if (second > 0) {    time[4] = nol(second);  }  if ((Number(time[2])<22) && (Number(time[2])>7)){    currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/糖果屋-营业中-6adea8?style=social&logo=cakephp' title='距离百年老店也就差不到一百年~'><div id='runtime'>" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';  }  else{    currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/糖果屋-打烊了-6adea8?style=social&logo=coffeescript' title='这个点了应该去睡觉啦，熬夜对身体不好哦'><div id='runtime'>" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';  }  document.getElementById("workboard").innerHTML = currentTimeHtml;}, 1000);]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>友情链接</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="flink-exchange"><div class="flink-exchange-title">欢迎各位大佬交换友链！</div><img class="flink-exchange-avatar no-lightbox" src="https://pics.klucen.cn//bangumi/Asuka.jpg" alt="KLucenの启示录" loading='lazy'><div class="flink-exchange-name">KLucenの启示录</div><div class="flink-exchange-desc">Lass den Wind mich in die Ferne treiben.</div><div class="flink-exchange-info"><div><span class="k">名称</span><span class="v">KLucenの启示录</span></div><div><span class="k">简介</span><span class="v">Lass den Wind mich in die Ferne treiben.</span></div><div><span class="k">链接</span><span class="v">https://www.klucen.cn/</span></div><div><span class="k">头像</span><span class="v">https://pics.klucen.cn//bangumi/Asuka.jpg</span></div></div></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/pwa.js"/>
-      <url>/js/pwa.js</url>
-      
-        <content type="html"><![CDATA[/*! * pwa.js —— 注册 Service Worker，并把当前页用到的资源交给它缓存 * * Butterfly 的 pwa 配置只负责输出 manifest 链接，并不会注册 Service Worker， * 而「离线可访问 / 可安装」都要求有 SW，所以这里自己注册 /sw.js。 * * 为什么要额外 postMessage： * SW 只能缓存「经过它」的请求。首次访问时 SW 尚未接管页面， * 页面自己的 HTML/CSS/JS 请求不会被缓存，于是「第一次看完就断网」会打不开。 * 这里在 SW 就绪后把当前文档与同源静态资源交给它缓存，补上这一段。 * * 只在 https（或 localhost 调试）下注册，因为浏览器不允许其他环境使用 SW。 * 注册时机也不能等 load 事件：本站第三方资源多，load 可能长时间不触发。 * * 想撤销：把 _config.butterfly.yml 里的 pwa.enable 关掉并移除本脚本注入， * 然后在浏览器控制台执行一次： *   navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister())) */(function () {  'use strict'  if (!('serviceWorker' in navigator)) return  var secure = location.protocol === 'https:' ||    location.hostname === 'localhost' ||    location.hostname === '127.0.0.1'  if (!secure) return  function collectUrls () {    var urls = [location.origin + location.pathname]    var nodes = document.querySelectorAll('link[rel="stylesheet"][href], script[src]')    for (var i = 0; i < nodes.length; i++) {      var u = nodes[i].href || nodes[i].src      // 只交同源资源；跨域 CDN 由 SW 自己按静态资源规则缓存      if (u && u.indexOf(location.origin) === 0 && urls.indexOf(u) === -1) urls.push(u)    }    return urls  }  function warmCache (reg) {    var sw = navigator.serviceWorker.controller || (reg && reg.active)    if (!sw) return    try {      sw.postMessage({ type: 'cache-urls', urls: collectUrls() })    } catch (e) { /* 忽略 */ }  }  navigator.serviceWorker.register('/sw.js').then(function (reg) {    warmCache(reg)    // 首次注册时 SW 可能还没激活，等它就绪后再补一次    navigator.serviceWorker.ready.then(function () { warmCache(reg) }).catch(function () {})  }).catch(function (err) {    console.warn('[pwa] Service Worker 注册失败：' + (err && err.message ? err.message : err))  })})()]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[<p>这里放的是我在网易云收藏的几个歌单，点一下卡片就会在下面的播放器里播放。左上角那个歌单有 575 首，载入会稍微慢一点，耐心等一下～</p><div class="music-playlists">  <button type="button" class="music-card" data-playlist-id="2016654449" data-playlist-name="Xealle喜欢的音乐">    <img class="music-card-cover" src="https://p1.music.126.net/LsaQlydzHwi4gh6TC_GIow==/109951172389238939.jpg?param=120y120" alt="Xealle喜欢的音乐" loading="lazy">    <span class="music-card-meta">      <span class="music-card-name">Xealle喜欢的音乐</span>      <span class="music-card-count">575 首</span>    </span>  </button>  <button type="button" class="music-card" data-playlist-id="17711740292" data-playlist-name="/-～-/">    <img class="music-card-cover" src="https://p1.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg?param=120y120" alt="/-～-/" loading="lazy">    <span class="music-card-meta">      <span class="music-card-name">/-～-/</span>      <span class="music-card-count">12 首</span>    </span>  </button>  <button type="button" class="music-card" data-playlist-id="7866740625" data-playlist-name="Xealle的2022年度歌单">    <img class="music-card-cover" src="https://p1.music.126.net/y4i9Bs9Yx9tiTd2Pz5rjuQ==/109951166161938903.jpg?param=120y120" alt="Xealle的2022年度歌单" loading="lazy">    <span class="music-card-meta">      <span class="music-card-name">Xealle的2022年度歌单</span>      <span class="music-card-count">10 首</span>    </span>  </button></div><div id="music-page-player" data-music-player data-playlist-id="2016654449"></div><p id="music-page-status"></p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -455,11 +444,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/cursor.js"/>
-      <url>/js/cursor.js</url>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
-        <content type="html"><![CDATA[var CURSOR;Math.lerp = (a, b, n) => (1 - n) * a + n * b;const getStyle = (el, attr) => {    try {        return window.getComputedStyle            ? window.getComputedStyle(el)[attr]            : el.currentStyle[attr];    } catch (e) {}    return "";};class Cursor {    constructor() {        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    move(left, top) {        this.cursor.style["left"] = `${left}px`;        this.cursor.style["top"] = `${top}px`;    }    create() {        if (!this.cursor) {            this.cursor = document.createElement("div");            this.cursor.id = "cursor";            this.cursor.classList.add("hidden");            document.body.append(this.cursor);        }        var el = document.getElementsByTagName('*');        for (let i = 0; i < el.length; i++)            if (getStyle(el[i], "cursor") == "pointer")                this.pt.push(el[i].outerHTML);        document.body.appendChild((this.scr = document.createElement("style")));        // 这里改变鼠标指针的颜色 由svg生成        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='.5'/></svg>") 4 4, auto}`;    }    refresh() {        this.scr.remove();        this.cursor.classList.remove("hover");        this.cursor.classList.remove("active");        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    init() {        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};        document.onmouseenter = e => this.cursor.classList.remove("hidden");        document.onmouseleave = e => this.cursor.classList.add("hidden");        document.onmousedown  = e => this.cursor.classList.add("active");        document.onmouseup    = e => this.cursor.classList.remove("active");    }    render() {        if (this.pos.prev) {            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);            this.move(this.pos.prev.x, this.pos.prev.y);        } else {            this.pos.prev = this.pos.curr;        }        requestAnimationFrame(() => this.render());    }}(() => {    CURSOR = new Cursor();    // 需要重新获取列表时，使用 CURSOR.refresh()})();]]></content>
+        <content type="html"><![CDATA[<p>这里放的是我在网易云收藏的几个歌单，点一下卡片就会在下面的播放器里播放。左上角那个歌单有 575 首，载入会稍微慢一点，耐心等一下～</p><div class="music-playlists">  <button type="button" class="music-card" data-playlist-id="2016654449" data-playlist-name="Xealle喜欢的音乐">    <img class="music-card-cover" src="https://p1.music.126.net/LsaQlydzHwi4gh6TC_GIow==/109951172389238939.jpg?param=120y120" alt="Xealle喜欢的音乐" loading="lazy">    <span class="music-card-meta">      <span class="music-card-name">Xealle喜欢的音乐</span>      <span class="music-card-count">575 首</span>    </span>  </button>  <button type="button" class="music-card" data-playlist-id="17711740292" data-playlist-name="/-～-/">    <img class="music-card-cover" src="https://p1.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg?param=120y120" alt="/-～-/" loading="lazy">    <span class="music-card-meta">      <span class="music-card-name">/-～-/</span>      <span class="music-card-count">12 首</span>    </span>  </button>  <button type="button" class="music-card" data-playlist-id="7866740625" data-playlist-name="Xealle的2022年度歌单">    <img class="music-card-cover" src="https://p1.music.126.net/y4i9Bs9Yx9tiTd2Pz5rjuQ==/109951166161938903.jpg?param=120y120" alt="Xealle的2022年度歌单" loading="lazy">    <span class="music-card-meta">      <span class="music-card-name">Xealle的2022年度歌单</span>      <span class="music-card-count">10 首</span>    </span>  </button></div><div id="music-page-player" data-music-player data-playlist-id="2016654449"></div><p id="music-page-status"></p>]]></content>
       
     </entry>
     
@@ -477,22 +466,11 @@
     
     
     <entry>
-      <title>说说</title>
-      <link href="/shuoshuo/index.html"/>
-      <url>/shuoshuo/index.html</url>
+      <title></title>
+      <link href="/js/pwa.js"/>
+      <url>/js/pwa.js</url>
       
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>二次元</title>
-      <link href="/gallery/bangumi/index.html"/>
-      <url>/gallery/bangumi/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//bangumi/bangumi.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/preview.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/d074f0b5fa76eb161f850250eaf45bd.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/Asuka.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/0d8e26c3d921b559fe.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/18dcbc357522fc6e7166a0d78824a3e1be1b9e14.png%401192w.webp","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/18f2dad6abad62c72291f9e6d7955aa.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/73dac64f1996c68706.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/67626fd226ea4137b80c149a0b4d67e.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/63945518.jpg","alt":"","title":""}]</div>  </div>]]></content>
+        <content type="html"><![CDATA[/*! * pwa.js —— 注册 Service Worker，并把当前页用到的资源交给它缓存 * * Butterfly 的 pwa 配置只负责输出 manifest 链接，并不会注册 Service Worker， * 而「离线可访问 / 可安装」都要求有 SW，所以这里自己注册 /sw.js。 * * 为什么要额外 postMessage： * SW 只能缓存「经过它」的请求。首次访问时 SW 尚未接管页面， * 页面自己的 HTML/CSS/JS 请求不会被缓存，于是「第一次看完就断网」会打不开。 * 这里在 SW 就绪后把当前文档与同源静态资源交给它缓存，补上这一段。 * * 只在 https（或 localhost 调试）下注册，因为浏览器不允许其他环境使用 SW。 * 注册时机也不能等 load 事件：本站第三方资源多，load 可能长时间不触发。 * * 想撤销：把 _config.butterfly.yml 里的 pwa.enable 关掉并移除本脚本注入， * 然后在浏览器控制台执行一次： *   navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister())) */(function () {  'use strict'  if (!('serviceWorker' in navigator)) return  var secure = location.protocol === 'https:' ||    location.hostname === 'localhost' ||    location.hostname === '127.0.0.1'  if (!secure) return  function collectUrls () {    var urls = [location.origin + location.pathname]    var nodes = document.querySelectorAll('link[rel="stylesheet"][href], script[src]')    for (var i = 0; i < nodes.length; i++) {      var u = nodes[i].href || nodes[i].src      // 只交同源资源；跨域 CDN 由 SW 自己按静态资源规则缓存      if (u && u.indexOf(location.origin) === 0 && urls.indexOf(u) === -1) urls.push(u)    }    return urls  }  function warmCache (reg) {    var sw = navigator.serviceWorker.controller || (reg && reg.active)    if (!sw) return    try {      sw.postMessage({ type: 'cache-urls', urls: collectUrls() })    } catch (e) { /* 忽略 */ }  }  navigator.serviceWorker.register('/sw.js').then(function (reg) {    warmCache(reg)    // 首次注册时 SW 可能还没激活，等它就绪后再补一次    navigator.serviceWorker.ready.then(function () { warmCache(reg) }).catch(function () {})  }).catch(function (err) {    console.warn('[pwa] Service Worker 注册失败：' + (err && err.message ? err.message : err))  })})()]]></content>
       
     </entry>
     
@@ -510,6 +488,17 @@
     
     
     <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[setInterval(() => {  let create_time = Math.round(new Date('2019-04-17 00:00:00').getTime() / 1000); //在此行修改建站时间  let timestamp = Math.round((new Date().getTime()) / 1000);  let second = timestamp - create_time;  let time = new Array(0, 0, 0, 0, 0);  var nol = function(h){    return h>9?h:'0'+h;  }  if (second >= 365 * 24 * 3600) {    time[0] = parseInt(second / (365 * 24 * 3600));    second %= 365 * 24 * 3600;  }  if (second >= 24 * 3600) {    time[1] = parseInt(second / (24 * 3600));    second %= 24 * 3600;  }  if (second >= 3600) {    time[2] = nol(parseInt(second / 3600));    second %= 3600;  }  if (second >= 60) {    time[3] = nol(parseInt(second / 60));    second %= 60;  }  if (second > 0) {    time[4] = nol(second);  }  if ((Number(time[2])<22) && (Number(time[2])>7)){    currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/糖果屋-营业中-6adea8?style=social&logo=cakephp' title='距离百年老店也就差不到一百年~'><div id='runtime'>" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';  }  else{    currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/糖果屋-打烊了-6adea8?style=social&logo=coffeescript' title='这个点了应该去睡觉啦，熬夜对身体不好哦'><div id='runtime'>" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';  }  document.getElementById("workboard").innerHTML = currentTimeHtml;}, 1000);]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>美食</title>
       <link href="/gallery/food/index.html"/>
       <url>/gallery/food/index.html</url>
@@ -521,11 +510,11 @@
     
     
     <entry>
-      <title>wallpaper</title>
-      <link href="/gallery/wallpaper/index.html"/>
-      <url>/gallery/wallpaper/index.html</url>
+      <title>二次元</title>
+      <link href="/gallery/bangumi/index.html"/>
+      <url>/gallery/bangumi/index.html</url>
       
-        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pic-bed-1sw.pages.dev//wallpaper/wallpaper.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/bizhihui_com_202504061743931435838716.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/OIP-C.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/R-C.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/20250419033923174500516318725.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/20250510092014174684001431803.png","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/20250604004111174896887175072.png","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/bizhihui_com_202503291743236806344756.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/bizhihui_com_20231111141143169968310317261.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/bizhihui_com_20231110234055169963085548497.png","alt":"","title":""}]</div>  </div>]]></content>
+        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//bangumi/bangumi.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/preview.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/d074f0b5fa76eb161f850250eaf45bd.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/Asuka.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/0d8e26c3d921b559fe.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/18dcbc357522fc6e7166a0d78824a3e1be1b9e14.png%401192w.webp","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/18f2dad6abad62c72291f9e6d7955aa.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/73dac64f1996c68706.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/67626fd226ea4137b80c149a0b4d67e.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//bangumi/63945518.jpg","alt":"","title":""}]</div>  </div>]]></content>
       
     </entry>
     
@@ -537,6 +526,17 @@
       <url>/gallery/travel/index.html</url>
       
         <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pics.klucen.cn//travel/IMG_4391.jpg","alt":"皇家哈基米","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4286.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4293.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4320.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4324.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4326.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4327.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4329.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4338.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4340.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4365.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4373.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4377.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4381.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4382.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4385.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4387.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4390.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4265.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4266.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4268.jpg","alt":"学校的庭院","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4271.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//travel/IMG_4284.jpg","alt":"","title":""}]</div>  </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>wallpaper</title>
+      <link href="/gallery/wallpaper/index.html"/>
+      <url>/gallery/wallpaper/index.html</url>
+      
+        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pic-bed-1sw.pages.dev//wallpaper/wallpaper.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/bizhihui_com_202504061743931435838716.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/OIP-C.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/R-C.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/20250419033923174500516318725.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/20250510092014174684001431803.png","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/20250604004111174896887175072.png","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/bizhihui_com_202503291743236806344756.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/bizhihui_com_20231111141143169968310317261.jpg","alt":"","title":""},{"url":"https://pics.klucen.cn//wallpaper/bizhihui_com_20231110234055169963085548497.png","alt":"","title":""}]</div>  </div>]]></content>
       
     </entry>
     
